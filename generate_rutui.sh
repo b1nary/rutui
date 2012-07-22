@@ -18,7 +18,12 @@ cat lib/pixel.rb | egrep -v "(^#.*|^$)" >> rutui.rb
 cat lib/screen.rb | egrep -v "(^#.*|^$)" >> rutui.rb
 cat lib/screenmanager.rb | egrep -v "(^#.*|^$)" >> rutui.rb
 cat lib/figlet.rb | egrep -v "(^#.*|^$)" >> rutui.rb
+cat lib/ansi.rb | egrep -v "(^#.*|^$)" >> rutui.rb
+cat lib/axx.rb | egrep -v "(^#.*|^$)" >> rutui.rb
 
 echo "end" >> rutui.rb
-gem build rutui.gemspec
-sudo gem install rutui-0.0.2.gem
+#rm rutui-0.1.gem
+#gem build rutui.gemspec
+#sudo gem install rutui-0.1.gem
+
+cp rutui.rb ../../Ruby/BämBox/

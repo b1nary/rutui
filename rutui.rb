@@ -7,7 +7,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Son Jul 22 13:34:14 CEST 2012
+# Son Jul 22 17:02:02 CEST 2012
 #
 class RuTui
 class Color
@@ -34,11 +34,12 @@ class Utils
 		#IO.console.winsize
 		#rescue LoadError
 		# unix only but each ruby
-		if !ENV["LINES"].nil?
-			[ENV["LINES"], ENV["COLUMNS"]]
-		else
-			[Integer(`tput lines`), Integer(`tput cols`)]
-		end
+		[Integer(`tput lines`), Integer(`tput cols`)]
+		#if !ENV["LINES"].nil?
+		#	[ENV["LINES"], ENV["COLUMNS"]]
+		#else
+		#	[Integer(`tput lines`), Integer(`tput cols`)]
+		#end
 	end
 	# Get input char without enter 
 	# UNIX only! 
@@ -259,8 +260,18 @@ class Screen
 		@map = @smap.dup
 		@default = default_pixel
 		@objects = []
+		@statics = []
 		# Set as default if first screen
 		ScreenManager.add :default, self if ScreenManager.size == 0
+	end
+	# regen screen (size change?)
+	def rescreen
+		size = Utils.winsize
+		@smap = Array.new(size[0]){ Array.new(size[1]) }
+		@statics.each do |s|
+			self.add_static s
+		end
+		@map = @smap.dup
 	end
 	# Set default/background pixel
 	#  Ex.: screen.set_default Pixel.new(244,1,";")
@@ -273,6 +284,7 @@ class Screen
 	end
 	# add object that doesnt change over time
 	def add_static object
+		@statics << object if !@statics.include? object
 		object.each do |ri,ci,pixel|
 			@smap[object.y+ri][object.x+ci] = pixel if !pixel.nil? and object.y+ri > 0 and object.y+ci > 0
 		end
@@ -344,20 +356,32 @@ class ScreenManager
 	def self.get_screen name
 		@@screens[name]
 	end
+	# Refit screen size
+	def refit
+		size = Utils.winsize
+		if @autofit or size != @lastsize
+			File.open("log.log", 'w') {|f| f.write("#{size[0]}-#{size[1]}\n") }
+			@@screens[@@current].rescreen
+			@lastsize = size
+		end
+	end
 	# draw current screen
 	def self.draw
 		print Color.clear
 		@@screens[@@current].draw
 	end
 	# Raw Game Loop
-	#  Ex.: ScreenManager.loop({ autodraw => true }){ |key| p key } 
+	#  Ex.: ScreenManager.loop({ :autodraw => true, :autofit => true }){ |key| p key } 
 	def self.loop options
 		autodraw = options[:autodraw]
+		@autofit = options[:autofit]
+		@lastsize = nil
 		Utils.init
 		ScreenManager.draw
 		while true
 			key = Utils.gets
 			yield key
+			ScreenManager.refit if @autofit
 			ScreenManager.draw if autodraw
 		end
 	end
@@ -474,6 +498,62 @@ class Figlet < BaseObject
 		else
 			return false
 		end
+	end
+end
+class Axx < BaseObject
+	def initialize options
+		@x = options[:x]
+		@y = options[:y]
+		@file = options[:file]
+		@attr, @xx, @yy, @save_x, @save_y, @attr = 0,0,0,0,0,0
+		return if @x.nil? or @y.nil? or @file.nil?
+		return if !File.exists? @file
+		@img = File.open(@file).read
+		self.parse
+	end
+	def parse
+		
+	end
+end
+class Axx < BaseObject
+	def initialize options
+		@x = options[:x]
+		@y = options[:y]
+		@file = options[:file]
+		return if @x.nil? or @y.nil? or @file.nil?
+		return if !File.exists? @file
+		@img = File.open(@file).read
+		parse
+	end
+	def parse
+		out = []
+		@img.split("\n").each_with_index do |line,li|
+			if !line.match(/^#/)
+				out[li] = []
+				line.split("|").each_with_index do |elem,ei|
+					ele = elem.split(":")
+					if ele.size == 3
+						out[li][ei] = Pixel.new(ele[1].to_i,ele[2].to_i,ele[0])
+					elsif ele.size == 2
+						out[li][ei] = Pixel.new(ele[1].to_i,nil,ele[0])
+					else
+						if ele[0] == "nil"
+							out[li][ei] = nil
+						else
+							out[li][ei] = Pixel.new(nil,nil,ele[0])
+						end
+					end
+				end
+			end
+		end
+		out.each do |o|
+			p out
+			p " "
+			out.delete(o) if o.nil?
+		end
+		@obj = out
+		@height = out.size
+		@width = out.size
 	end
 end
 end

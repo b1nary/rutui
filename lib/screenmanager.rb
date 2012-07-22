@@ -39,6 +39,16 @@ class ScreenManager
 		@@screens[name]
 	end
 
+	# Refit screen size
+	def refit
+		size = Utils.winsize
+		if @autofit or size != @lastsize
+			File.open("log.log", 'w') {|f| f.write("#{size[0]}-#{size[1]}\n") }
+			@@screens[@@current].rescreen
+			@lastsize = size
+		end
+	end
+
 	# draw current screen
 	def self.draw
 		print Color.clear
@@ -46,15 +56,18 @@ class ScreenManager
 	end
 
 	# Raw Game Loop
-	#  Ex.: ScreenManager.loop({ autodraw => true }){ |key| p key } 
+	#  Ex.: ScreenManager.loop({ :autodraw => true, :autofit => true }){ |key| p key } 
 	def self.loop options
 		autodraw = options[:autodraw]
+		@autofit = options[:autofit]
+		@lastsize = nil
 		Utils.init
 		ScreenManager.draw
 
 		while true
 			key = Utils.gets
 			yield key
+			ScreenManager.refit if @autofit
 			ScreenManager.draw if autodraw
 		end
 	end

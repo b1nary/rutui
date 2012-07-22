@@ -39,11 +39,13 @@ class Utils
 		#IO.console.winsize
 		#rescue LoadError
 		# unix only but each ruby
-		if !ENV["LINES"].nil?
-			[ENV["LINES"], ENV["COLUMNS"]]
-		else
-			[Integer(`tput lines`), Integer(`tput cols`)]
-		end
+		[Integer(`tput lines`), Integer(`tput cols`)]
+
+		#if !ENV["LINES"].nil?
+		#	[ENV["LINES"], ENV["COLUMNS"]]
+		#else
+		#	[Integer(`tput lines`), Integer(`tput cols`)]
+		#end
 	end
 
 	# Get input char without enter 

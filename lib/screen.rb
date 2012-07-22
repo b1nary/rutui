@@ -12,8 +12,21 @@ class Screen
 		@map = @smap.dup
 		@default = default_pixel
 		@objects = []
+		@statics = []
 		# Set as default if first screen
 		ScreenManager.add :default, self if ScreenManager.size == 0
+	end
+
+	# regen screen (size change?)
+	def rescreen
+		size = Utils.winsize
+		@smap = Array.new(size[0]){ Array.new(size[1]) }
+
+		@statics.each do |s|
+			self.add_static s
+		end
+
+		@map = @smap.dup
 	end
 
 	# Set default/background pixel
@@ -29,6 +42,7 @@ class Screen
 
 	# add object that doesnt change over time
 	def add_static object
+		@statics << object if !@statics.include? object
 		object.each do |ri,ci,pixel|
 			@smap[object.y+ri][object.x+ci] = pixel if !pixel.nil? and object.y+ri > 0 and object.y+ci > 0
 		end
