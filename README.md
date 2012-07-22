@@ -16,9 +16,13 @@ RuTui is a leightweight, pure ruby alternative to known Commandline Interface fr
 or
 
 > git clone https://github.com/b1nary/rutui.git
+
 > cd rutui
+
 > sh generate_rutui.sh
+
 > gem build ruitui.gemspec
+
 > gem install ruitui*.gem
 
 ## License
