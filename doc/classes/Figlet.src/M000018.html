@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create (Figlet)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/figlet.rb, line 53</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+                <span class="ruby-identifier">obj</span> = []
+                <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-value str">'n'</span>].<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> 
+                        <span class="ruby-identifier">obj</span> <span class="ruby-operator">&lt;&lt;</span> []
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-identifier">p</span> <span class="ruby-identifier">obj</span>
+                <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span>
+
+                <span class="ruby-identifier">p</span> <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-value str">'F'</span>]
+                <span class="ruby-identifier">p</span> <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-value str">'L'</span>]
+
+                <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+                <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@@chars</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">chr</span>
+                                <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-identifier">c</span>.<span class="ruby-identifier">chr</span>].<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fr</span>,<span class="ruby-identifier">ri</span><span class="ruby-operator">|</span>
+                                        <span class="ruby-identifier">fr</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fc</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rainbow</span>
+                                                        <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@@rainbow</span>[<span class="ruby-identifier">current</span>], <span class="ruby-ivar">@colors</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-identifier">fc</span>)
+                                                <span class="ruby-keyword kw">else</span>
+                                                        <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">fg</span>,<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-identifier">fc</span>)
+                                                <span class="ruby-keyword kw">end</span>
+
+                                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rainbow</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">true</span>
+                                                        <span class="ruby-identifier">current</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@colors</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+                                                        <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@colors</span>.<span class="ruby-identifier">size</span>
+                                                <span class="ruby-keyword kw">end</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+
+                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rainbow</span>
+                                        <span class="ruby-identifier">current</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                                        <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@@rainbow</span>.<span class="ruby-identifier">size</span>
+                                <span class="ruby-keyword kw">end</span>
+
+                                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                                        <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-value str">'n'</span>].<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ri</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-ivar">@space</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+                                                        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rainbow</span>
+                                                                <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@@rainbow</span>[<span class="ruby-identifier">current</span>], <span class="ruby-ivar">@colors</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-value str">&quot; &quot;</span>)
+                                                        <span class="ruby-keyword kw">else</span>
+                                                                <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">fg</span>,<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-value str">&quot; &quot;</span>)
+                                                        <span class="ruby-keyword kw">end</span>
+                                                <span class="ruby-keyword kw">end</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-comment cmt"># SPace</span>
+                        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">chr</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot; &quot;</span>
+                                <span class="ruby-ivar">@@fonts</span>[<span class="ruby-ivar">@font</span>][<span class="ruby-value str">'n'</span>].<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ri</span><span class="ruby-operator">|</span>
+                                        <span class="ruby-value">3</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span>
+                                                <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@rainbow</span>
+                                                        <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@@rainbow</span>[<span class="ruby-identifier">current</span>], <span class="ruby-ivar">@colors</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-value str">&quot; &quot;</span>)
+                                                <span class="ruby-keyword kw">else</span>
+                                                        <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">ri</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">fg</span>,<span class="ruby-ivar">@colors</span>[<span class="ruby-identifier">current</span>].<span class="ruby-identifier">bg</span>,<span class="ruby-value str">&quot; &quot;</span>)
+                                                <span class="ruby-keyword kw">end</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-keyword kw">end</span>
+                        <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-ivar">@obj</span> = <span class="ruby-identifier">obj</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

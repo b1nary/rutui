@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Box)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/objects.rb, line 58</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">options</span>
+                <span class="ruby-ivar">@x</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:x</span>]
+                <span class="ruby-ivar">@y</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:y</span>]
+                <span class="ruby-ivar">@width</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:width</span>]
+                <span class="ruby-ivar">@height</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:height</span>]
+
+                <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@x</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@y</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@width</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@height</span>.<span class="ruby-identifier">nil?</span>
+
+                <span class="ruby-ivar">@fill</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:fill</span>]
+
+                <span class="ruby-ivar">@vertical</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:vertical</span>]
+                <span class="ruby-ivar">@horizontal</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:horizontal</span>]
+                <span class="ruby-ivar">@corner</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:corner</span>]
+                <span class="ruby-ivar">@horizontal</span> = <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value str">&quot;-&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:horizontal</span>].<span class="ruby-identifier">nil?</span>
+                <span class="ruby-ivar">@vertical</span>   = <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value str">&quot;|&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:vertical</span>].<span class="ruby-identifier">nil?</span>
+                <span class="ruby-ivar">@corner</span>     = <span class="ruby-constant">Pixel</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">0</span>,<span class="ruby-value str">&quot;*&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:corner</span>].<span class="ruby-identifier">nil?</span>
+
+                <span class="ruby-ivar">@width</span> = <span class="ruby-value">3</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@width</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+                <span class="ruby-ivar">@height</span> = <span class="ruby-value">3</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@height</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+
+                <span class="ruby-identifier">create</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

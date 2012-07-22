@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Color</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Color</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/util_rb.html">
+                lib/util.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <pre>
+ Color Class
+</pre>
+<p>
+This Class generates color strings for the Terminal based output.
+</p>
+<p>
+Its only tested on Linux, should work atleast on other unix based systems
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000018">background</a>&nbsp;&nbsp;
+      <a href="#M000016">bg</a>&nbsp;&nbsp;
+      <a href="#M000021">clear</a>&nbsp;&nbsp;
+      <a href="#M000020">clear_color</a>&nbsp;&nbsp;
+      <a href="#M000017">fg</a>&nbsp;&nbsp;
+      <a href="#M000019">foreground</a>&nbsp;&nbsp;
+      <a href="#M000015">rgb</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000018.html');return false;">
+          <span class="method-name">background</span><span class="method-args">(color;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+&quot;Shortcut&quot; to <a href="Color.html#M000018">background</a> color
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000016.html');return false;">
+          <span class="method-name">bg</span><span class="method-args">(color;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set <a href="Color.html#M000018">background</a> color
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000021.html');return false;">
+          <span class="method-name">clear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clear <a href="Screen.html">Screen</a>/Terminal
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000020.html');return false;">
+          <span class="method-name">clear_color</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clear all color
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000017.html');return false;">
+          <span class="method-name">fg</span><span class="method-args">(color;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set text color
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000019.html');return false;">
+          <span class="method-name">foreground</span><span class="method-args">(color;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+&quot;Shortcut&quot; to foreground/text color
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="Color.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Color.src/M000015.html');return false;">
+          <span class="method-name">rgb</span><span class="method-args">(red, green, blue)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Calculate color from RGB values
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
