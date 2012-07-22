@@ -1,10 +1,14 @@
+#
 # Generated one file script of rutui
 # This file is commandless and stripped down
 # For full source please visit:
-#   
+#   https://github.com/b1nary/rutui
 #
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
+#
+# Son Jul 22 13:34:14 CEST 2012
+#
 class RuTui
 class Color
 	# Calculate color from RGB values

@@ -9,6 +9,8 @@ RuTui is a leightweight, pure ruby alternative to known Commandline Interface fr
 -  Several premade Objects
 -  FIGlet Font support
 
+![RuTui](http://img641.imageshack.us/img641/7633/rutui.png)
+
 
 ## License
 This Project is licensed under the [MIT License](http://de.wikipedia.org/wiki/MIT-Lizenz)
