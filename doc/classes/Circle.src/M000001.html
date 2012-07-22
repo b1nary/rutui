@@ -10,13 +10,15 @@
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/objects.rb, line 173</span>
+  <pre><span class="ruby-comment cmt"># File lib/objects.rb, line 176</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">options</span>
                 <span class="ruby-ivar">@x</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:x</span>]
                 <span class="ruby-ivar">@y</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:y</span>]
                 <span class="ruby-ivar">@radius</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:radius</span>]
                 <span class="ruby-ivar">@pixel</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:pixel</span>]
                 <span class="ruby-ivar">@fill</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:fill_pixel</span>]
+
+                <span class="ruby-ivar">@pixel</span> = <span class="ruby-constant">Theme</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">:border</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@pixel</span>.<span class="ruby-identifier">nil?</span>
 
                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@x</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@y</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-ivar">@radius</span>.<span class="ruby-identifier">nil?</span>
 

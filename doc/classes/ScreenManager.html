@@ -95,13 +95,15 @@ Static class to handle screens
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000036">delete</a>&nbsp;&nbsp;
-      <a href="#M000040">draw</a>&nbsp;&nbsp;
-      <a href="#M000038">get_current</a>&nbsp;&nbsp;
-      <a href="#M000039">get_screen</a>&nbsp;&nbsp;
-      <a href="#M000041">loop</a>&nbsp;&nbsp;
-      <a href="#M000035">set</a>&nbsp;&nbsp;
-      <a href="#M000037">set_current</a>&nbsp;&nbsp;
+      <a href="#M000088">add</a>&nbsp;&nbsp;
+      <a href="#M000090">delete</a>&nbsp;&nbsp;
+      <a href="#M000095">draw</a>&nbsp;&nbsp;
+      <a href="#M000092">get_current</a>&nbsp;&nbsp;
+      <a href="#M000093">get_screen</a>&nbsp;&nbsp;
+      <a href="#M000096">loop</a>&nbsp;&nbsp;
+      <a href="#M000094">refit</a>&nbsp;&nbsp;
+      <a href="#M000091">set_current</a>&nbsp;&nbsp;
+      <a href="#M000089">size</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -123,101 +125,13 @@ Static class to handle screens
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000036" class="method-detail">
-        <a name="M000036"></a>
+      <div id="method-M000088" class="method-detail">
+        <a name="M000088"></a>
 
         <div class="method-heading">
-          <a href="ScreenManager.src/M000036.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000036.html');return false;">
-          <span class="method-name">delete</span><span class="method-args">(name)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Delete screen by name
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000040" class="method-detail">
-        <a name="M000040"></a>
-
-        <div class="method-heading">
-          <a href="ScreenManager.src/M000040.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000040.html');return false;">
-          <span class="method-name">draw</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-<a href="ScreenManager.html#M000040">draw</a> current screen
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000038" class="method-detail">
-        <a name="M000038"></a>
-
-        <div class="method-heading">
-          <a href="ScreenManager.src/M000038.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000038.html');return false;">
-          <span class="method-name">get_current</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Get current screen
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000039" class="method-detail">
-        <a name="M000039"></a>
-
-        <div class="method-heading">
-          <a href="ScreenManager.src/M000039.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000039.html');return false;">
-          <span class="method-name">get_screen</span><span class="method-args">(name)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Get the complete screen by name
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000041" class="method-detail">
-        <a name="M000041"></a>
-
-        <div class="method-heading">
-          <a href="ScreenManager.src/M000041.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000041.html');return false;">
-          <span class="method-name">loop</span><span class="method-args">(options) {|key| ...}</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Raw Game Loop
-</p>
-<pre>
- Ex.: ScreenManager.loop({ autodraw =&gt; true }){ |key| p key }
-</pre>
-        </div>
-      </div>
-
-      <div id="method-M000035" class="method-detail">
-        <a name="M000035"></a>
-
-        <div class="method-heading">
-          <a href="ScreenManager.src/M000035.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000035.html');return false;">
-          <span class="method-name">set</span><span class="method-args">(name, screen)</span>
+          <a href="ScreenManager.src/M000088.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000088.html');return false;">
+          <span class="method-name">add</span><span class="method-args">(name, screen)</span>
           </a>
         </div>
       
@@ -231,12 +145,117 @@ Set a screen
         </div>
       </div>
 
-      <div id="method-M000037" class="method-detail">
-        <a name="M000037"></a>
+      <div id="method-M000090" class="method-detail">
+        <a name="M000090"></a>
 
         <div class="method-heading">
-          <a href="ScreenManager.src/M000037.html" target="Code" class="method-signature"
-            onclick="popupCode('ScreenManager.src/M000037.html');return false;">
+          <a href="ScreenManager.src/M000090.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000090.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Delete screen by name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000095.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000095.html');return false;">
+          <span class="method-name">draw</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="ScreenManager.html#M000095">draw</a> current screen
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000092" class="method-detail">
+        <a name="M000092"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000092.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000092.html');return false;">
+          <span class="method-name">get_current</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get current screen
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000093" class="method-detail">
+        <a name="M000093"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000093.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000093.html');return false;">
+          <span class="method-name">get_screen</span><span class="method-args">(name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the complete screen by name
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000096.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000096.html');return false;">
+          <span class="method-name">loop</span><span class="method-args">(options) {|key| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Raw Game Loop
+</p>
+<pre>
+ Ex.: ScreenManager.loop({ :autodraw =&gt; true, :autofit =&gt; true }){ |key| p key }
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000094" class="method-detail">
+        <a name="M000094"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000094.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000094.html');return false;">
+          <span class="method-name">refit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Refit screen <a href="ScreenManager.html#M000089">size</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000091" class="method-detail">
+        <a name="M000091"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000091.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000091.html');return false;">
           <span class="method-name">set_current</span><span class="method-args">(name)</span>
           </a>
         </div>
@@ -244,6 +263,23 @@ Set a screen
         <div class="method-description">
           <p>
 Set current screen
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000089" class="method-detail">
+        <a name="M000089"></a>
+
+        <div class="method-heading">
+          <a href="ScreenManager.src/M000089.html" target="Code" class="method-signature"
+            onclick="popupCode('ScreenManager.src/M000089.html');return false;">
+          <span class="method-name">size</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get count of existing screens
 </p>
         </div>
       </div>
