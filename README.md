@@ -3,6 +3,13 @@ RuTui is a leightweight, pure ruby alternative to known Commandline Interface fr
 
 ## Features
 
+-  Fully textbased Interfaces
+-  No depencies
+-  255 Colors (in Unix)
+-  Several premade Objects
+-  FIGlet Font support
+
+
 ## License
 This Project is licensed under the [MIT License](http://de.wikipedia.org/wiki/MIT-Lizenz)
 
