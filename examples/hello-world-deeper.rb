@@ -1,8 +1,10 @@
 #
 # Hello world deeper example for RuTui
 #
-require 'rubygems'
-require 'rutui'
+require '../rutui.rb'
+
+# Switch theme
+RuTui::Theme.use :light
 
 # Create Screen
 # You should remember this from the first hallo world
@@ -18,10 +20,14 @@ box = RuTui::Box.new({ :x => size[1]/2-13, :y => 4, :width => 26, :height => 5 }
 screen.add_static box
 
 # Now lets create an text element into the box!
-text = RuTui::Text.new( :x => size[1]/2-11, :y => 6, :text => "You klicked: nil (nil)", :foreground => 14 )
+text = RuTui::Text.new( :x => size[1]/2-11, :y => 6, :text => "You klicked: nil (nil)" ) 
 
 # add the text as dynamic object
 screen.add text
+
+# Add some info, may somebody would'nt find out else
+info = RuTui::Text.new( :x => 1, :y => 1, :text => "Use q or CTRL+C to close" )
+screen.add_static info
 
 # Create loop
 # it will automatically redraw after each key input

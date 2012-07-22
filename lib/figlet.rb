@@ -27,13 +27,15 @@ class Figlet < BaseObject
 	attr_accessor :text, :rainbow, :font, :colors
 	# Figlet font: '!" #$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz[|]~ÄÖÜäöüß'
 	@@chars = '!!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz[|]~ÄÖÜäöüß'.split("")
-	@@rainbow = [1,3,11,2,4,5]
+	@@rainbow = nil
 	@@fonts = {}
 
 	# Initialize (see above)
 	def initialize options
 		@x = options[:x]
 		@y = options[:y]
+
+		@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
 
 		return if @x.nil? or @y.nil?
 
@@ -43,7 +45,7 @@ class Figlet < BaseObject
 		@space = options[:space]
 		@space = 0 if @space.nil?
 		@colors = options[:colors]
-		@colors = [Pixel.new(15)] if @colors.nil?
+		@colors = [Pixel.new(Theme.get(:textcolor))] if @colors.nil?
 
 		create
 	end

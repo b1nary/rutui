@@ -5,25 +5,17 @@ RuTui is a leightweight, pure ruby alternative to known Commandline Interface fr
 
 -  Fully textbased Interfaces
 -  No depencies
--  255 Colors (in Unix)
+-  255 Colors (atleast in Unix)
 -  Several premade Objects
 -  FIGlet Font support
+-  Own dynamic image format
+-  Sprites
+-  Basic Themeing
+.  ,,,
 
 ## Installation
 
 > sudo gem install rutui
-
-or
-
-> git clone https://github.com/b1nary/rutui.git
-
-> cd rutui
-
-> sh generate_rutui.sh
-
-> gem build ruitui.gemspec
-
-> gem install ruitui*.gem
 
 ## License
 This Project is licensed under the [MIT License](http://de.wikipedia.org/wiki/MIT-Lizenz)

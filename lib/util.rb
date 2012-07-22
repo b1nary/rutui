@@ -70,5 +70,6 @@ class Utils
 	def self.clear
 		system("tput cnorm")
 	end
+
 end
 

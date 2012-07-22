@@ -1,8 +1,7 @@
 #
 # Hello world example for RuTui
 #
-require 'rubygems'
-require 'rutui'
+require '../rutui.rb'
 
 # Create Screen
 # the first screen gets automatically the tag :default

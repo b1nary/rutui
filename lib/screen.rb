@@ -6,7 +6,7 @@
 #
 class Screen
 	# Initialize me with a default pixel, if you want
-	def initialize default_pixel = Pixel.new(238,236,":")
+	def initialize default_pixel = Theme.get(:background)
 		size = Utils.winsize
 		@smap = Array.new(size[0]){ Array.new(size[1]) }
 		@map = @smap.dup

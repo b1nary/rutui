@@ -40,10 +40,9 @@ class ScreenManager
 	end
 
 	# Refit screen size
-	def refit
+	def self.refit
 		size = Utils.winsize
 		if @autofit or size != @lastsize
-			File.open("log.log", 'w') {|f| f.write("#{size[0]}-#{size[1]}\n") }
 			@@screens[@@current].rescreen
 			@lastsize = size
 		end
@@ -60,6 +59,7 @@ class ScreenManager
 	def self.loop options
 		autodraw = options[:autodraw]
 		@autofit = options[:autofit]
+		@autofit = true if @autofit.nil?
 		@lastsize = nil
 		Utils.init
 		ScreenManager.draw

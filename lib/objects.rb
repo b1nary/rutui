@@ -70,9 +70,10 @@ class Box < RuTui::BaseObject
 		@vertical   = options[:vertical]
 		@horizontal = options[:horizontal]
 		@corner   	= options[:corner]
-		@horizontal = Pixel.new(3,0,"-") if options[:horizontal].nil?
-		@vertical   = Pixel.new(3,0,"|") if options[:vertical].nil?
-		@corner     = Pixel.new(3,0,"*") if options[:corner].nil?
+		ref = Theme.get(:border)
+		@horizontal = Pixel.new(ref.fg,ref.bg,"-") if options[:horizontal].nil?
+		@vertical   = Pixel.new(ref.fg,ref.bg,"|") if options[:vertical].nil?
+		@corner     = Pixel.new(ref.fg,ref.bg,"*") if options[:corner].nil?
 
 		@width = 3 if @width < 3
 		@height = 3 if @height < 3
@@ -137,7 +138,7 @@ class Line < BaseObject
 		@pixel = options[:pixel]
 		@endpixel = options[:endpixel]
 
-		@pixel = Pixel.new(2) if @pixel.nil?
+		@pixel = Theme.get(:border) if @pixel.nil?
 
 		create
 	end
@@ -178,6 +179,8 @@ class Circle < BaseObject
 		@radius = options[:radius]
 		@pixel = options[:pixel]
 		@fill = options[:fill_pixel]
+
+		@pixel = Theme.get(:border) if @pixel.nil?
 
 		return if @x.nil? or @y.nil? or @radius.nil?
 
@@ -226,17 +229,18 @@ end
 #
 class Text < BaseObject
 	attr_accessor :bg, :fg, :text, :do_rainbow
-	@@rainbow = [1,3,11,2,4,5]
+	@@rainbow = nil
 
 	def initialize options
+		@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
 		@do_rainbow = options[:rainbow]
 		@text = options[:text]
 		@x = options[:x]
 		@y = options[:y]
 		@bg = options[:background]
 		@fg = options[:foreground]
-		@bg = 236 if @bg.nil?
-		@fg = 245 if @fg.nil?
+		@bg = Theme.get(:background).bg if @bg.nil?
+		@fg = Theme.get(:textcolor) if @fg.nil?
 		return if @x.nil? or @y.nil?
 
 		@height = 1

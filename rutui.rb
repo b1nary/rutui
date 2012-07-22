@@ -7,7 +7,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Son Jul 22 17:02:02 CEST 2012
+# Son Jul 22 19:06:05 CEST 2012
 #
 class RuTui
 class Color
@@ -62,6 +62,57 @@ class Utils
 		system("tput cnorm")
 	end
 end
+class Pixel
+	attr_accessor :fg, :bg, :symbol
+	def initialize foreground = 15, background = nil, symbol = " "
+			@fg = foreground
+			@bg = background
+			@symbol = symbol
+	end
+	def self.random sym = "#"
+		Pixel.new(rand(255),rand(255),sym)
+	end
+end
+class Theme
+	@@themes = {}
+	@@use = :default
+	# init themes
+	def self.init
+		@@themes[:default] = {
+			:background => Pixel.new(236,234,":"),
+			:border 		=> Pixel.new(144,234,"-"),
+			:textcolor  => 11,
+			:rainbow 		=> [1,3,11,2,4,5]
+		}
+		@@themes[:light] = {
+			:background => Pixel.new(251,253,":"),
+			:border 		=> Pixel.new(237,253,"-"),
+			:textcolor  => 0,
+			:rainbow 		=> [1,3,11,2,4,5]
+		}
+	end
+	# Create new theme
+	def self.create name, theme
+		@@themes[name] = theme
+	end
+	# Delete theme
+	def self.delete name
+		@@themes.delete(name)
+	end
+	# Set value from current theme
+	def self.set key, val
+		@@themes[@@use][key] = val
+	end
+	# Get value from current theme
+	def self.get val
+		@@themes[@@use][val]
+	end
+	# set current theme
+	def self.use name
+		@@use = name if !@@themes[name].nil?
+	end
+end
+Theme.init
 class BaseObject
 	attr_accessor :x, :y, :width, :height, :obj
 	# Ex.: BaseObject.new({ :x => 1, :y => 20, :obj => [[Pixel.new(1),Pixel.new(2,4,"#")]] })
@@ -103,9 +154,10 @@ class Box < RuTui::BaseObject
 		@vertical   = options[:vertical]
 		@horizontal = options[:horizontal]
 		@corner   	= options[:corner]
-		@horizontal = Pixel.new(3,0,"-") if options[:horizontal].nil?
-		@vertical   = Pixel.new(3,0,"|") if options[:vertical].nil?
-		@corner     = Pixel.new(3,0,"*") if options[:corner].nil?
+		ref = Theme.get(:border)
+		@horizontal = Pixel.new(ref.fg,ref.bg,"-") if options[:horizontal].nil?
+		@vertical   = Pixel.new(ref.fg,ref.bg,"|") if options[:vertical].nil?
+		@corner     = Pixel.new(ref.fg,ref.bg,"*") if options[:corner].nil?
 		@width = 3 if @width < 3
 		@height = 3 if @height < 3
 		create
@@ -147,7 +199,7 @@ class Line < BaseObject
 		return if @x.nil? or @y.nil? or @width.nil?
 		@pixel = options[:pixel]
 		@endpixel = options[:endpixel]
-		@pixel = Pixel.new(2) if @pixel.nil?
+		@pixel = Theme.get(:border) if @pixel.nil?
 		create
 	end
 	# Create Line
@@ -173,6 +225,7 @@ class Circle < BaseObject
 		@radius = options[:radius]
 		@pixel = options[:pixel]
 		@fill = options[:fill_pixel]
+		@pixel = Theme.get(:border) if @pixel.nil?
 		return if @x.nil? or @y.nil? or @radius.nil?
 		@width = options[:radius]*2 # needed?
 		@height = @width # needed?
@@ -202,16 +255,17 @@ class Circle < BaseObject
 end
 class Text < BaseObject
 	attr_accessor :bg, :fg, :text, :do_rainbow
-	@@rainbow = [1,3,11,2,4,5]
+	@@rainbow = nil
 	def initialize options
+		@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
 		@do_rainbow = options[:rainbow]
 		@text = options[:text]
 		@x = options[:x]
 		@y = options[:y]
 		@bg = options[:background]
 		@fg = options[:foreground]
-		@bg = 236 if @bg.nil?
-		@fg = 245 if @fg.nil?
+		@bg = Theme.get(:background).bg if @bg.nil?
+		@fg = Theme.get(:textcolor) if @fg.nil?
 		return if @x.nil? or @y.nil?
 		@height = 1
 		create
@@ -241,20 +295,9 @@ class Text < BaseObject
 		create
 	end
 end
-class Pixel
-	attr_accessor :fg, :bg, :symbol
-	def initialize foreground = 15, background = nil, symbol = " "
-			@fg = foreground
-			@bg = background
-			@symbol = symbol
-	end
-	def self.random sym = "#"
-		Pixel.new(rand(255),rand(255),sym)
-	end
-end
 class Screen
 	# Initialize me with a default pixel, if you want
-	def initialize default_pixel = Pixel.new(238,236,":")
+	def initialize default_pixel = Theme.get(:background)
 		size = Utils.winsize
 		@smap = Array.new(size[0]){ Array.new(size[1]) }
 		@map = @smap.dup
@@ -357,10 +400,9 @@ class ScreenManager
 		@@screens[name]
 	end
 	# Refit screen size
-	def refit
+	def self.refit
 		size = Utils.winsize
 		if @autofit or size != @lastsize
-			File.open("log.log", 'w') {|f| f.write("#{size[0]}-#{size[1]}\n") }
 			@@screens[@@current].rescreen
 			@lastsize = size
 		end
@@ -375,6 +417,7 @@ class ScreenManager
 	def self.loop options
 		autodraw = options[:autodraw]
 		@autofit = options[:autofit]
+		@autofit = true if @autofit.nil?
 		@lastsize = nil
 		Utils.init
 		ScreenManager.draw
@@ -390,12 +433,13 @@ class Figlet < BaseObject
 	attr_accessor :text, :rainbow, :font, :colors
 	# Figlet font: '!" #$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz[|]~ÄÖÜäöüß'
 	@@chars = '!!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz[|]~ÄÖÜäöüß'.split("")
-	@@rainbow = [1,3,11,2,4,5]
+	@@rainbow = nil
 	@@fonts = {}
 	# Initialize (see above)
 	def initialize options
 		@x = options[:x]
 		@y = options[:y]
+		@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
 		return if @x.nil? or @y.nil?
 		@font = options[:font]
 		@text = options[:text]
@@ -403,7 +447,7 @@ class Figlet < BaseObject
 		@space = options[:space]
 		@space = 0 if @space.nil?
 		@colors = options[:colors]
-		@colors = [Pixel.new(15)] if @colors.nil?
+		@colors = [Pixel.new(Theme.get(:textcolor))] if @colors.nil?
 		create
 	end
 	
@@ -517,10 +561,8 @@ class Axx < BaseObject
 end
 class Axx < BaseObject
 	def initialize options
-		@x = options[:x]
-		@y = options[:y]
 		@file = options[:file]
-		return if @x.nil? or @y.nil? or @file.nil?
+		return if @file.nil?
 		return if !File.exists? @file
 		@img = File.open(@file).read
 		parse
@@ -547,13 +589,91 @@ class Axx < BaseObject
 			end
 		end
 		out.each do |o|
-			p out
-			p " "
 			out.delete(o) if o.nil?
 		end
 		@obj = out
 		@height = out.size
 		@width = out.size
+	end
+	def self.parse data
+		out = []
+		data.split("\n").each_with_index do |line,li|
+			if !line.match(/^#/)
+				out[li] = []
+				line.split("|").each_with_index do |elem,ei|
+					ele = elem.split(":")
+					if ele.size == 3
+						out[li][ei] = Pixel.new(ele[1].to_i,ele[2].to_i,ele[0])
+					elsif ele.size == 2
+						out[li][ei] = Pixel.new(ele[1].to_i,nil,ele[0])
+					else
+						if ele[0] == "nil"
+							out[li][ei] = nil
+						else
+							out[li][ei] = Pixel.new(nil,nil,ele[0])
+						end
+					end
+				end
+			end
+		end
+		out.each do |o|
+			out.delete(o) if o.nil? or o == []
+		end
+		return out
+	end
+end
+class Sprite < BaseObject
+	attr_accessor :tick, :current, :sprites, :ticks, :object
+	@@spr = []
+	def initialize options
+		@x = options[:x]
+		@y = options[:y]
+		@x = 0 if @x.nil?
+		@y = 0 if @y.nil?
+		@tick = 0
+		@object = options[:obj]
+		@file = options[:file]
+		@current = nil
+		@@spr << self
+		@sprites = {}
+		create_from_file if !@file.nil?
+	end
+	def create_from_file
+		if File.exists? @file
+			data = File.open(@file).read
+			# AXX Format
+			if data.include? '---' and data.include? '| :' 
+				out = []
+				data = data.split("---")
+				while data.size > 0
+					while data[0].match(/^#/)
+						data.shift
+					end
+					name = data.shift
+					content = data.shift
+					@sprites[name] = [] if @sprites[name].nil?
+					@sprites[name] << Axx.parse(content)
+					@current = name if @current.nil? # first sprite gets default
+					@obj = @sprites[@current][0]
+				end
+			end
+		end
+	end
+	# set current animation
+	def set_current name
+		@current = name
+		@obj = @sprites[@current][0]
+	end
+	# Add sprite
+	def add name, images
+		@current = name if @current.nil? # first sprite gets default
+		@sprites[name] = images
+	end
+	# Update ticker
+	def update
+		@tick += 1
+		@tick = 0 if @tick >= ( @sprites[@current].size )
+		@obj = @sprites[@current][@tick]
 	end
 end
 end
