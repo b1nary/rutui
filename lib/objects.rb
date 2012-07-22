@@ -26,6 +26,10 @@ class BaseObject
 	def set_pixel x, y, pixel
 		@obj[x][y] = pixel if !@obj[x].nil? and !@obj[x][y].nil?
 	end
+	# Get pixel by position
+	def get_pixel x, y
+		@obj[x][y] if !@obj[x].nil? and !@obj[x][y].nil?
+	end
 
 	# "special" each methods for objects
 	def each 

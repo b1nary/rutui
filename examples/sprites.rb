@@ -6,7 +6,7 @@ size = RuTui::Utils.winsize
 
 screen.add_static RuTui::Text.new({ :x => size[1]/2-14, :y  => 2, :text => "use WASD or q/CTRL+C to quit" })
 
-sprites = RuTui::Sprite.new({ :x => size[1]/2-6, :y => 5, :ticks => 1, :file => 'space-invader_sprite.axx' })
+sprites = RuTui::Sprite.new({ :x => size[1]/2-6, :y => 5, :file => 'space-invader_sprite.axx' })
 screen.add sprites
 
 Thread.new {
