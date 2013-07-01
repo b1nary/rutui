@@ -1,4 +1,5 @@
-#
+#!/usr/bin/env ruby
+# encoding: UTF-8
 # Generated one file script of rutui
 # This file is commandless and stripped down
 # For full source please visit:
@@ -7,7 +8,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Son Jul 22 19:06:05 CEST 2012
+# Mon Jul  1 10:12:47 CEST 2013
 #
 class RuTui
 class Color
@@ -29,17 +30,17 @@ end
 class Utils
 	# Get Windows size
 	def self.winsize
-		#begin
-		#	require "io/console"
-		#	row, col = $stdout.winsize
-		#	return [row, col]
-		#rescue
-		#	if !ENV["LINES"].nil? and !ENV["COLUMNS"].nil?
-		#		return [ENV["LINES"], ENV["COLUMNS"]]
-		#	else
-				return [Integer(`tput lines`), Integer(`tput cols`)]
-		#	end
-		end
+ 		# > Ruby 1.9.3
+		#require 'io/console'
+		#IO.console.winsize
+		#rescue LoadError
+		# unix only but each ruby
+		[Integer(`tput lines`), Integer(`tput cols`)]
+		#if !ENV["LINES"].nil?
+		#	[ENV["LINES"], ENV["COLUMNS"]]
+		#else
+		#	[Integer(`tput lines`), Integer(`tput cols`)]
+		#end
 	end
 	# Get input char without enter 
 	# UNIX only! 
@@ -55,6 +56,7 @@ class Utils
 	end
 	# Hides the cursor
 	def self.init
+		require 'Win32/Console/ANSI' if PLATFORM =~ /win32/
 		system("tput civis")
 	end
 	# Brings the cursor back
@@ -131,6 +133,10 @@ class BaseObject
 	# Set pixel on position on object
 	def set_pixel x, y, pixel
 		@obj[x][y] = pixel if !@obj[x].nil? and !@obj[x][y].nil?
+	end
+	# Get pixel by position
+	def get_pixel x, y
+		@obj[x][y] if !@obj[x].nil? and !@obj[x][y].nil?
 	end
 	# "special" each methods for objects
 	def each 

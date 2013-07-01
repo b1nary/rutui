@@ -1,5 +1,6 @@
 rm rutui.rb
-echo "#" > rutui.rb
+echo "#!/usr/bin/env ruby" > rutui.rb
+echo "# encoding: UTF-8" >> rutui.rb
 echo "# Generated one file script of rutui" >> rutui.rb
 echo "# This file is commandless and stripped down" >> rutui.rb
 echo "# For full source please visit:" >> rutui.rb
@@ -29,4 +30,4 @@ echo "end" >> rutui.rb
 #gem build rutui.gemspec
 #sudo gem install rutui-0.1.gem
 
-cp rutui.rb ../../Ruby/BämBox/
+#cp rutui.rb ../../Ruby/BämBox/

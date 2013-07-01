@@ -2,12 +2,12 @@
 # parse Figlet Font files
 #
 # Attributes (All accessable):
-#	 :x				MUST
-#	 :y				MUST
-#	 :text			Your text
-#	 :font			Use a loaded font file
+#	 :x		MUST
+#	 :y		MUST
+#	 :text		Your text
+#	 :font		Use a loaded font file
 #	 :rainbow	true|any
-#	 :colors		Array of example pixels used for colors
+#	 :colors	Array of example pixels used for colors
 #		
 #
 # Example:
@@ -15,7 +15,7 @@
 #	 Figlet.new({ :text => "Meh", :font => :test, :rainbow => true })
 #
 # Config content (just to remember what the figlet slug means)
-#	 0 	- name
+#	 0   - name
 #	 1   - height of a character
 #	 2   - height of a character, not including descenders
 #	 3   - max line length (excluding comment lines) + a fudge factor
