@@ -8,7 +8,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Mon Jul  1 10:12:47 CEST 2013
+# Mon Jul  1 10:50:50 CEST 2013
 #
 class RuTui
 class Color
@@ -56,7 +56,6 @@ class Utils
 	end
 	# Hides the cursor
 	def self.init
-		require 'Win32/Console/ANSI' if PLATFORM =~ /win32/
 		system("tput civis")
 	end
 	# Brings the cursor back
@@ -568,6 +567,9 @@ end
 class Axx < BaseObject
 	def initialize options
 		@file = options[:file]
+		@x = options[:x]
+		@y = options[:y]
+	
 		return if @file.nil?
 		return if !File.exists? @file
 		@img = File.open(@file).read

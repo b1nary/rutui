@@ -11,10 +11,11 @@
 #	 A:2		Char A, Foreground 2, Background default
 #
 class Axx < BaseObject
-
 	def initialize options
 		@file = options[:file]
-
+		@x = options[:x]
+		@y = options[:y]
+	
 		return if @file.nil?
 		return if !File.exists? @file
 
