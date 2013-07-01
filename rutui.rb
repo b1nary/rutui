@@ -8,7 +8,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Mon Jul  1 11:42:58 CEST 2013
+# Mon Jul  1 13:54:29 CEST 2013
 #
 class RuTui
 class Color
