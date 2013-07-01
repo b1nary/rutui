@@ -23,6 +23,15 @@ You can use this in many different application purposes. You can create simple C
 sudo gem install rutui
 ```
 
+## Changelog
+
+* 0.3
+  * Fixes, fixes, fixes
+* 0.2 (beta)
+  * Rolling updates
+* 0.1 (alpha)
+  * Rolling updates
+
 ## License
 This Project is licensed under the [MIT License](http://de.wikipedia.org/wiki/MIT-Lizenz)
 
