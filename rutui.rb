@@ -29,17 +29,17 @@ end
 class Utils
 	# Get Windows size
 	def self.winsize
- 		# > Ruby 1.9.3
-		#require 'io/console'
-		#IO.console.winsize
-		#rescue LoadError
-		# unix only but each ruby
-		[Integer(`tput lines`), Integer(`tput cols`)]
-		#if !ENV["LINES"].nil?
-		#	[ENV["LINES"], ENV["COLUMNS"]]
-		#else
-		#	[Integer(`tput lines`), Integer(`tput cols`)]
-		#end
+		#begin
+		#	require "io/console"
+		#	row, col = $stdout.winsize
+		#	return [row, col]
+		#rescue
+		#	if !ENV["LINES"].nil? and !ENV["COLUMNS"].nil?
+		#		return [ENV["LINES"], ENV["COLUMNS"]]
+		#	else
+				return [Integer(`tput lines`), Integer(`tput cols`)]
+		#	end
+		end
 	end
 	# Get input char without enter 
 	# UNIX only! 

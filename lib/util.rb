@@ -63,6 +63,7 @@ class Utils
 
 	# Hides the cursor
 	def self.init
+		require 'Win32/Console/ANSI' if PLATFORM =~ /win32/
 		system("tput civis")
 	end
 

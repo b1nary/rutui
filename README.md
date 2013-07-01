@@ -1,20 +1,20 @@
 # RuTui
-RuTui is a leightweight, pure ruby alternative to known Commandline Interface frameworks like nCurses, also in my opinion a lot of better than the built in Curses. (Sure why else had i created this?) Well what i wanted was a library where i can feel free, dont be lamed with DOS's 16 colors default and crazy. nearly C-like statements to create my little cli. This is the result, or the beginning of it.
+RuTui is a lightweight, pure ruby alternative to known commandline interface frameworks like nCurses, also in my opinion, kinda better than the built in Curses. (Sure why else had i created this?) Well what i wanted was a library where i can feel free, dont be lamed with DOS's 16 colors default and crazy, nearly C-like statements to create my little cli. This is the result, or the beginning of it.
 
 [**Take a look at the wiki**](https://github.com/b1nary/rutui/wiki)
 
 ## Features
 
--  Fully textbased Interfaces
+-  Fully textbased interfaces
 -  No depencies (except ruby)
 -  255 Colors (atleast in Unix)
--  FIGlet Font support
+-  FIGlet font support
 -  Own dynamic image format
--  Sprites (with Animation)
--  Basic Themeing
+-  Sprites (with animation)
+-  Basic themeing
 -  ...
 
-You can use this in many different application purposes. You can create simple CLI's for your Scripts, you can make awesome ASCII based Data visualisations. Its also basicly a small game framework.
+You can use this in many different application purposes. You can create simple CLI's for your scripts, you can make awesome ASCII based data visualisations. Its also basicly a small game engine.
 
 ## Installation
 
