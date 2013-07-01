@@ -8,7 +8,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Mon Jul  1 11:04:17 CEST 2013
+# Mon Jul  1 11:42:58 CEST 2013
 #
 class RuTui
 class Color
@@ -452,7 +452,7 @@ class Figlet < BaseObject
 		@space = options[:space]
 		@space = 0 if @space.nil?
 		@colors = options[:colors]
-		@colors = [Pixel.new(Theme.get(:textcolor))] if @colors.nil?
+		@colors = [Pixel.new(Theme.get(:textcolor), Theme.get(:background).bg, Theme.get(:background).symbol)] if @colors.nil?
 		create
 	end
 	
@@ -463,10 +463,7 @@ class Figlet < BaseObject
 		@@fonts[@font]['n'].size.times do 
 			obj << []
 		end
-		p obj
 		current = 0
-		p @@fonts[@font]['F']
-		p @@fonts[@font]['L']
 		count = 0
 		@text.each_byte do |c|
 			if @@chars.include? c.chr
@@ -491,21 +488,21 @@ class Figlet < BaseObject
 					@@fonts[@font]['n'].size.times do |ri|
 						@space.times do
 							if @rainbow
-								obj[ri] << Pixel.new(@@rainbow[current], @colors[0].bg," ")
+								obj[ri] << Pixel.new(@@rainbow[current], @colors[0].bg,Theme.get(:background).symbol)
 							else
-								obj[ri] << Pixel.new(@colors[current].fg,@colors[current].bg," ")
+								obj[ri] << Pixel.new(@colors[current].fg,@colors[current].bg,Theme.get(:background).symbol)
 							end
 						end
 					end
 				end
 			# SPace
-			elsif c.chr == " "
+			else
 				@@fonts[@font]['n'].size.times do |ri|
 					3.times do
 						if @rainbow
-							obj[ri] << Pixel.new(@@rainbow[current], @colors[0].bg," ")
+							obj[ri] << Pixel.new(@@rainbow[current], @colors[0].bg, Theme.get(:background).symbol)
 						else
-							obj[ri] << Pixel.new(@colors[current].fg,@colors[current].bg," ")
+							obj[ri] << Pixel.new(@colors[current].fg,@colors[current].bg, Theme.get(:background).symbol)
 						end
 					end
 				end
