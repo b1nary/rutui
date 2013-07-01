@@ -58,7 +58,7 @@ class Utils
 		ensure
 			system("stty -raw echo")
 		end
-		return str
+		return str.ord
 	end
 
 	# Hides the cursor

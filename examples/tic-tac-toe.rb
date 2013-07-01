@@ -41,6 +41,8 @@ screen.add box0
 
 
 RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
+
+	#File.open("test", "a"){ |f| f.write("#{key.to_i}\n") }
 	if key.chr == "q" or key == 3 # CTRL+C
 		break
 
@@ -65,13 +67,13 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 			info.set_text "Current:  #{@current}"
 		end
 
-	elsif key == 65 # up
+	elsif key.chr == 'w' # up
 		(box0.move(0,-2); pos[1] -= 1) if pos[1] > 0
-	elsif key == 66 # down
+	elsif key.chr == 's' # down
 		(box0.move(0,2); pos[1] += 1) if pos[1] < 2
-	elsif key == 67 # right
+	elsif key.chr == 'd' # right
 		(box0.move(4,0); pos[0] += 1) if pos[0] < 2
-	elsif key == 68 # left
+	elsif key.chr == 'a' # left
 		(box0.move(-4,0); pos[0] -= 1) if pos[0] > 0
 	end
 end

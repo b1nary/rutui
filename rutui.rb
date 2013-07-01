@@ -8,7 +8,7 @@
 # Author: Roman Pramberger (roman.pramberger@gmail.com)
 # License: MIT
 #
-# Mon Jul  1 10:50:50 CEST 2013
+# Mon Jul  1 11:04:17 CEST 2013
 #
 class RuTui
 class Color
@@ -52,7 +52,7 @@ class Utils
 		ensure
 			system("stty -raw echo")
 		end
-		return str
+		return str.ord
 	end
 	# Hides the cursor
 	def self.init
