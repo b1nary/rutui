@@ -1,3 +1,19 @@
+## Table Object Class
+# Creates an Table element
+#
+# Attributes (all accessible):
+# 	:x				MUST
+# 	:y				MUST
+#	:table			- the tabular data in an array (like: [[1,"A"], [2, "B"]])
+#	:background		- Background color (0-255)
+#	:foreground 	- Foreground color (0-255)
+# 	:hover			- Hover color (0-255)
+# 	:ascii 			- Draw ASCII decoration
+#   :highlight 		- To highlight line
+# 	:highlight_direction - Highlight direction
+#   :cols 			- Header and meta definitions (see example)
+# 	:pixel 			- Default pixel (colors) for border
+#
 class Table < BaseObject
 	attr_accessor :table, :ascii, :highlight, :highlight_direction, :cols
 
@@ -47,6 +63,8 @@ class Table < BaseObject
 
 	end
 
+	##
+	# Add line to table
 	def add line
 		@table << line
 		@height += 1
@@ -54,6 +72,8 @@ class Table < BaseObject
 		create
 	end
 
+	##
+	# Delete line from table by index
 	def delete line_id
 		@table.delete(line_id)
 		@height -= 1
@@ -70,6 +90,8 @@ class Table < BaseObject
 		create
 	end
 
+	##
+	# create or recreate the table object
 	def create
 		obj = []
 		if @header
@@ -132,6 +154,8 @@ class Table < BaseObject
 		@obj = obj
 	end
 
+	##
+	# sort by column
 	def sort col
 		@table.sort! { |a,b| a[col] <=> b[col] }
 		@table.reverse! if @reverse
