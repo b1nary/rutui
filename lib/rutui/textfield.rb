@@ -95,7 +95,7 @@ class Textfield < BaseObject
 
 		if password
 			_text = text
-			text = 0
+			text = ""
 			_text.size.times do |i|
 				text += "*"
 			end

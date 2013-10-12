@@ -2,7 +2,7 @@ require 'rutui'
 
 screen = RuTui::Screen.new
 @tf1 = RuTui::Textfield.new({ :x => 1, :y => 1, :pixel => Pixel.new(12,44,"-") })
-@tf2 = RuTui::Textfield.new({ :x => 1, :y => 4 })
+@tf2 = RuTui::Textfield.new({ :x => 1, :y => 4, :password => true })
 
 screen.add @tf1
 screen.add @tf2
