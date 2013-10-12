@@ -50,6 +50,7 @@ class ScreenManager
 
 	# draw current screen
 	def self.draw
+		Color.go_home
 		@@screens[@@current].draw
 	end
 

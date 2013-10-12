@@ -15,6 +15,7 @@ require 'rutui/screenmanager'
 require 'rutui/figlet'
 require 'rutui/axx'
 require 'rutui/sprites'
+require 'rutui/table'
 
 module RuTui
 	Color 	= ::Color
@@ -31,4 +32,5 @@ module RuTui
 	Figlet 	= ::Figlet
 	Axx 	= ::Axx
 	Sprite 	= ::Sprite
+	Table 	= ::Table
 end

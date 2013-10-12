@@ -13,6 +13,8 @@ class BaseObject
 
 		@x = options[:x]
 		@y = options[:y]
+		@x = 1 if @x.nil?
+		@y = 1 if @y.nil?
 
 		@height = @obj.size
 		@width  = @obj[0].size
@@ -45,14 +47,14 @@ end
 # draw a box with borders
 #
 # Attributes (all accessible):
-#		:width							*	Box width
-#		:height 						*	Box height
-# 	:x									*	Box X MUST
-#		:y									*	Box Y MUST
-#		:horizontal					Horizontal Pixel
-#		:vertical						Vertical Pixel
-#		:corner							Corner Pixel
-#		:fill		Between the border lines (Color)
+#	:width							*	Box width
+#	:height 						*	Box height
+# 	:x								*	Box X MUST
+#	:y								*	Box Y MUST
+#	:horizontal						Horizontal Pixel
+#	:vertical						Vertical Pixel
+#	:corner							Corner Pixel
+#	:fill							Between the border lines (Color)
 #
 # Example:
 #  Box.new({ :x => 1, :y => 42, :width => 10, :height => 5, :corner => Pixel.new(1,2,"#"), :fill => Pixel.new(4,6,":") })
@@ -123,10 +125,10 @@ end
 # Attributes (all accessible)
 # 	:x				MUST
 # 	:y				MUST
-#		:direction  :vertical|:horizontal (Default: :horizontal)
-#		:length
-#		:pixel
-#		:endpixel
+#	:direction  	:vertical|:horizontal (Default: :horizontal)
+#	:length
+#	:pixel
+#	:endpixel
 #
 class Line < BaseObject
 	attr_accessor :length, :pixel, :endpixel, :direction
@@ -168,11 +170,11 @@ end
 # thx to: http://rubyquiz.strd6.com/quizzes/166-circle-drawing
 #
 # Attributes (all accessible):
-#	 	:x				MUST
-# 	:y				MUST
-#		:radius		- Circle radius
+# 	:x			MUST
+# 	:y			MUST
+# 	:radius		- Circle radius
 # 	:pixel		- Circle Pixel
-#	 	:fill			- Actually just fills the box not the circle...
+# 	:fill		- Actually just fills the box not the circle...
 #
 class Circle < BaseObject
 	attr_accessor :radius, :pixel, :fill
@@ -226,9 +228,9 @@ end
 # Attributes (all accessible):
 # 	:x				MUST
 # 	:y				MUST
-#		:text				- the text to draw
-#		:background	- Background color (0-255)
-#		:foreground - Foreground color (0-255)
+#	:text			- the text to draw
+#	:background		- Background color (0-255)
+#	:foreground 	- Foreground color (0-255)
 # 	:rainbow 		- true|false|none	Rainbow text
 #
 class Text < BaseObject
@@ -275,5 +277,9 @@ class Text < BaseObject
 	def set_text text
 		@text = text
 		create
+	end
+
+	def get_text
+		@text
 	end
 end
