@@ -25,9 +25,13 @@ class Color
 	# Clear all color
 	def self.clear_color; "\x1b[0m"; end
 	# Clear Screen/Terminal
-	def self.clear; "\e[2J"; end
+	def self.clear; "\x1b[2J"; end
+	# set start
+	def self.set_start; "\x1b[s"; end
+	# goto start
+	def self.goto_start; "\x1b[u"; end
 	# Go home
-	def self.go_home; "\e[H"; end
+	def self.go_home; "\x1b[H"; end
 end
 
 ## Screen Utils Class

@@ -64,6 +64,14 @@ class Table < BaseObject
 	end
 
 	##
+	# Set data
+	def set_table table
+		@table = table
+		index_col_widths
+		create
+	end
+
+	##
 	# Add line to table
 	def add line
 		@table << line
@@ -75,10 +83,12 @@ class Table < BaseObject
 	##
 	# Delete line from table by index
 	def delete line_id
-		@table.delete(line_id)
-		@height -= 1
-		index_col_widths
-		create
+		if !@table[line_id].nil?
+			@table.delete_at(line_id)
+			@height -= 1
+			index_col_widths
+			create
+		end
 	end
 
 	##

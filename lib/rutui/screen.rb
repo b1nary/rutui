@@ -35,11 +35,13 @@ class Screen
 		@default = pixel
 	end
 
+	##
 	# Get default/background pixel
 	def get_default
 		@default
 	end
 
+	##
 	# add object that doesnt change over time
 	def add_static object
 		@statics << object if !@statics.include? object
@@ -48,11 +50,19 @@ class Screen
 		end
 	end
 
+	##
 	# add dynamic object
 	def add object
 		@objects << object
 	end
 
+	##
+	# remove object
+	def delete object
+		@objects.delete(object)
+	end
+
+	##
 	# draw the pixel-screen map
 	def draw
 		lastpixel = Pixel.new(rand(255), rand(255), ".")
