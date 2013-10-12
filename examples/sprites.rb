@@ -1,4 +1,4 @@
-require '../rutui.rb'
+require 'rutui'
 
 screen = RuTui::Screen.new
 

@@ -4,7 +4,7 @@
 # This is the first example done in this library
 # Its more a proof of concept than an read worthy example
 #
-require '../rutui.rb'
+require 'rutui'
 
 screen = RuTui::Screen.new
 RuTui::ScreenManager.add :default, screen

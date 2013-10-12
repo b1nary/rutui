@@ -1,4 +1,4 @@
-require '../rutui.rb'
+require 'rutui'
 
 RuTui::Figlet.add :test_font, "colossal.flf"
 

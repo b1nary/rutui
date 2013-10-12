@@ -88,6 +88,8 @@ class Screen
 				end
 			end
 		end
+
+		# draw out
 		$stdout.write out
 	end
 

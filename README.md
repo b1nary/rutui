@@ -29,7 +29,7 @@ sudo gem install rutui
 ## Changelog
 
 * 0.4
-  * Refactoring
+  * Refactor structure
 * 0.3
   * Fixes, fixes, fixes
 * 0.2 (beta)

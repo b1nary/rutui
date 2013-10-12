@@ -1,7 +1,7 @@
 #
 # Hello world example for RuTui
 #
-require '../rutui.rb'
+require 'rutui'
 
 # Create Screen
 # the first screen gets automatically the tag :default
