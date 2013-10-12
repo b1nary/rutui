@@ -17,6 +17,12 @@ class Theme
 			:textcolor  => 0,
 			:rainbow 		=> [1,3,11,2,4,5]
 		}
+		@@themes[:basic] = {
+			:background => Pixel.new(0,14," "),
+			:border 		=> Pixel.new(8,14,"-"),
+			:textcolor  => 0,
+			:rainbow 		=> [1,2,3,4,5,6]
+		}
 	end
 
 	# Create new theme

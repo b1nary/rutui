@@ -22,13 +22,13 @@ screen.add_static text
 screen.add_static by
 screen.add info
 
-hor = RuTui::Pixel.new(112,236,"-")
-ver = RuTui::Pixel.new(112,236,"|")
-cor = RuTui::Pixel.new(112,236,"*")
+hor = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"-")
+ver = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"|")
+cor = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"*")
 
-xhor = RuTui::Pixel.new(152,236,"-")
-xver = RuTui::Pixel.new(152,236,"|")
-xcor = RuTui::Pixel.new(152,236,"#")
+xhor = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"-")
+xver = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"|")
+xcor = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"#")
 
 3.times do |ir|
 	3.times do |ic|
@@ -48,8 +48,8 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 
 	elsif key == 32 # enter
 		if @map[pos[0]][pos[1]] == 0
-			color = 111 if @current == "X"
-			color = 227 if @current == "O"
+			color = Theme.get(:rainbow)[1] if @current == "X"
+			color = Theme.get(:rainbow)[0] if @current == "O"
 
 			screen.add RuTui::Text.new({ :x => (@size[1]/2)+(pos[0]*4-4)+2, :y => 5+(pos[1]*2)+1, :text => @current, :foreground => color })
 			@map[pos[0]][pos[1]] = @current.dup
