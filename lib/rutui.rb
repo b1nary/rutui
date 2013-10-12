@@ -16,9 +16,10 @@ require 'rutui/figlet'
 require 'rutui/axx'
 require 'rutui/sprites'
 require 'rutui/table'
+require 'rutui/textfield'
 
 module RuTui
-	Color 	= ::Color
+	Ansi 	= ::Ansi
 	Utils 	= ::Utils
 	Pixel 	= ::Pixel
 	Theme 	= ::Theme
@@ -33,4 +34,5 @@ module RuTui
 	Axx 	= ::Axx
 	Sprite 	= ::Sprite
 	Table 	= ::Table
+	Textfield = ::Textfield
 end

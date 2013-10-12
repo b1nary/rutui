@@ -31,7 +31,7 @@ sudo gem install rutui
 * 0.4
   * Refactor structure
   * better printing (much less flicker)
-  * New objects: [Tables](https://github.com/b1nary/rutui/wiki/Tables)
+  * New objects: [Tables](https://github.com/b1nary/rutui/wiki/Tables), [Textfield](https://github.com/b1nary/rutui/wiki/Textfield)
 * 0.3
   * Fixes, fixes, fixes
 * 0.2 (beta)

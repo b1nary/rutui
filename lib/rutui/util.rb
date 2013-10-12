@@ -3,15 +3,15 @@
 # Its heavy unix based in here 
 #
 
-## Color Class
-# This Class generates color strings for the
+## Ansi Class
+# This Class generates ansi strings for the
 # Terminal based output.
 # 
 # Its only tested on Linux, should work atleast
 # on other unix based systems
 #
 
-class Color
+class Ansi
 	# Calculate color from RGB values
 	def self.rgb(red, green, blue);	16 + (red * 36) + (green * 6) + blue; end
 	# Set background color
@@ -32,6 +32,8 @@ class Color
 	def self.goto_start; "\x1b[u"; end
 	# Go home
 	def self.go_home; "\x1b[H"; end
+	# Goto position
+	def self.position x,y; "\x1b[#{y};#{x}f"; end
 end
 
 ## Screen Utils Class

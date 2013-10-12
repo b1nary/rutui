@@ -50,7 +50,7 @@ class ScreenManager
 
 	# draw current screen
 	def self.draw
-		print Color.go_home
+		print Ansi.go_home
 		@@screens[@@current].draw
 	end
 
@@ -61,8 +61,8 @@ class ScreenManager
 		@autofit = options[:autofit]
 		@autofit = true if @autofit.nil?
 		@lastsize = nil
-		print Color.clear
-		print Color.set_start
+		print Ansi.clear
+		print Ansi.set_start
 		Utils.init
 		ScreenManager.draw
 

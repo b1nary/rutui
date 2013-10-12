@@ -76,18 +76,18 @@ class Screen
 			end
 		end
 
-		out = "" #Color.go_home
+		out = "" # Color.go_home
 		# an DRAW!
 		@map.each do |line|
 			line.each do |pixel|
 				if pixel != lastpixel
-					out += Color.clear_color if lastpixel != 0
+					out += Ansi.clear_color if lastpixel != 0
 					if pixel.nil?
 						lastpixel = pixel
-						out += "#{Color.bg(@default.bg)}#{Color.fg(@default.fg)}#{@default.symbol}"
+						out += "#{Ansi.bg(@default.bg)}#{Ansi.fg(@default.fg)}#{@default.symbol}"
 					else
 						lastpixel = pixel
-						out += "#{Color.bg(pixel.bg)}#{Color.fg(pixel.fg)}#{pixel.symbol}"
+						out += "#{Ansi.bg(pixel.bg)}#{Ansi.fg(pixel.fg)}#{pixel.symbol}"
 					end
 				else
 					if pixel.nil?

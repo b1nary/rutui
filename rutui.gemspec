@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.files       = [ "lib/rutui.rb", "lib/rutui/util.rb", "lib/rutui/pixel.rb", 
   					"lib/rutui/theme.rb", "lib/rutui/objects.rb", "lib/rutui/screen.rb", 
   					"lib/rutui/screenmanager.rb", "lib/rutui/figlet.rb", "lib/rutui/axx.rb", 
-  					"lib/rutui/sprites.rb", "lib/rutui/table.rb"]
+  					"lib/rutui/sprites.rb", "lib/rutui/table.rb", "lib/rutui/textfield.rb"]
   s.homepage    = 'http://rubygems.org/gems/rutui'
 end
