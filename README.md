@@ -1,5 +1,7 @@
-# RuTui
 ![RuTui Logo](http://i.imgur.com/cu0yNM3.png "RuTui Logo")
+
+# RuTui
+
 RuTui is a lightweight, pure ruby alternative to known commandline interfaces like nCurses. Most CLI/TUI Frameworks sit on an C like approach, are very limited or are just not beautiful enough to use. This lib aims to be different, to be easy, modular and just Ruby like to handle. There is an inbuild color support and input controlling which sits on top of unix standard, so please note: no use on windows!
 
 [**Take a look at the wiki**](https://github.com/b1nary/rutui/wiki)
@@ -26,6 +28,8 @@ sudo gem install rutui
 
 ## Changelog
 
+* 0.4
+  * Refactoring
 * 0.3
   * Fixes, fixes, fixes
 * 0.2 (beta)
