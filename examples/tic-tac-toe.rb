@@ -46,14 +46,13 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	if key.chr == "q" or key == 3 # CTRL+C
 		break
 
-	elsif key == 13 # enter
+	elsif key == 32 # enter
 		if @map[pos[0]][pos[1]] == 0
 			color = 111 if @current == "X"
 			color = 227 if @current == "O"
 
 			screen.add RuTui::Text.new({ :x => (@size[1]/2)+(pos[0]*4-4)+2, :y => 5+(pos[1]*2)+1, :text => @current, :foreground => color })
 			@map[pos[0]][pos[1]] = @current.dup
-			p @map	
 
 			# Simple all possibilities, not that much so ....
 			(info.set_text "#{@current} WON! yay!"; RuTui::ScreenManager.draw; break) if (@map[0][0] == @map[0][1] and @map[0][0] == @map[0][2] and @map[0][2]!=0) or (@map[1][0] == @map[1][1] and @map[1][0] == @map[1][2] and @map[1][2]!=0) or (@map[2][0] == @map[2][1] and @map[2][0] == @map[2][2] and @map[2][2]!=0) or (@map[0][0] == @map[1][0] and @map[1][0] == @map[2][0] and @map[2][0]!=0) or (@map[0][1] == @map[1][1] and @map[1][1] == @map[2][1] and @map[2][1]!=0) or (@map[0][2] == @map[1][2] and @map[1][2] == @map[2][2] and @map[1][2]!=0) or (@map[0][0] == @map[1][1] and @map[1][1] == @map[2][2] and @map[1][1]!=0) or (@map[2][0] == @map[1][1] and @map[2][0] == @map[0][2] and @map[2][0]!=0)
@@ -78,4 +77,5 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	end
 end
 
-RuTui::Utils.clear
+puts RuTui::Color.clear
+puts RuTui::Color.clear_color

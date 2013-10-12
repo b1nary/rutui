@@ -30,6 +30,7 @@ sudo gem install rutui
 
 * 0.4
   * Refactor structure
+  * better printing (much less flicker)
 * 0.3
   * Fixes, fixes, fixes
 * 0.2 (beta)

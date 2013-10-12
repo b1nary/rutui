@@ -25,7 +25,9 @@ class Color
 	# Clear all color
 	def self.clear_color; "\x1b[0m"; end
 	# Clear Screen/Terminal
-	def self.clear; "\e[2J\e[1;1H"; end
+	def self.clear; "\e[2J"; end
+	# Go home
+	def self.go_home; "\e[H"; end
 end
 
 ## Screen Utils Class
@@ -64,11 +66,6 @@ class Utils
 	# Hides the cursor
 	def self.init
 		system("tput civis")
-	end
-
-	# Brings the cursor back
-	def self.clear
-		system("tput cnorm")
 	end
 
 end

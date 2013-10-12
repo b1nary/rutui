@@ -66,7 +66,7 @@ class Screen
 			end
 		end
 
-		out = ""
+		out = Color.go_home
 		# an DRAW!
 		@map.each do |line|
 			line.each do |pixel|
@@ -90,7 +90,8 @@ class Screen
 		end
 
 		# draw out
-		$stdout.write out
+		print out
+		$stdout.flush
 	end
 
 end
