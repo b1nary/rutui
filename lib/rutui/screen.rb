@@ -97,6 +97,7 @@ class Screen
 					end
 				end
 			end
+			out += "\r\n"
 		end
 
 		# draw out

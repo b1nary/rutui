@@ -2,7 +2,7 @@
 
 # RuTui
 
-RuTui is a lightweight, pure ruby alternative to known commandline interfaces like nCurses. Most CLI/TUI Frameworks sit on an C like approach, are very limited or are just not beautiful enough to use. This lib aims to be different, to be easy, modular and just Ruby like to handle. There is an inbuild color support and input controlling which sits on top of unix standard, so please note: no use on windows!
+RuTui is a lightweight, pure ruby alternative to known commandline interfaces like nCurses. Most CLI/TUI Frameworks sit on an C like approach, are very limited or are just not beautiful enough to use. This lib aims to be different, to be easy, modular and just Ruby like to handle. There is an inbuild color support and input controlling which sits on top of unix standard.
 
 [**Take a look at the wiki**](https://github.com/b1nary/rutui/wiki)
 
@@ -16,6 +16,7 @@ RuTui is a lightweight, pure ruby alternative to known commandline interfaces li
 -  Sprites (with animation)
 -  Basic themeing
 -  Prebuild Elements to draw
+-  Tables
 -  ...
 
 You can use this in many different application purposes. You can create simple CLI's for your scripts, you can make awesome ASCII based data visualisations. Its also basicly a small game engine.
@@ -26,12 +27,15 @@ You can use this in many different application purposes. You can create simple C
 sudo gem install rutui
 ```
 
+If you are on windows please take a look at [Ansicon](https://github.com/adoxa/ansicon).
+
 ## Changelog
 
 * 0.4
   * Refactor structure
   * better printing (much less flicker)
   * New objects: [Tables](https://github.com/b1nary/rutui/wiki/Tables), [Textfields](https://github.com/b1nary/rutui/wiki/Textfields)
+  * Adding cmd.exe support (colors only trough [Ansicon](https://github.com/adoxa/ansicon))
 * 0.3
   * Fixes, fixes, fixes
 * 0.2 (beta)

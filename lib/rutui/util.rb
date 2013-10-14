@@ -15,25 +15,25 @@ class Ansi
 	# Calculate color from RGB values
 	def self.rgb(red, green, blue);	16 + (red * 36) + (green * 6) + blue; end
 	# Set background color
-	def self.bg color; "\x1b[48;5;#{color}m"; end
+	def self.bg color; "#{$escape}[48;5;#{color}m"; end
 	# Set text color
-	def self.fg color; "\x1b[38;5;#{color}m"; end
+	def self.fg color; "#{$escape}[38;5;#{color}m"; end
 	# "Shortcut" to background color
 	def self.background color; self.bg color; end
 	# "Shortcut" to foreground/text color
 	def self.foreground color; self.fg color; end
 	# Clear all color
-	def self.clear_color; "\x1b[0m"; end
+	def self.clear_color; "#{$escape}[0m"; end
 	# Clear Screen/Terminal
-	def self.clear; "\x1b[2J"; end
+	def self.clear; "#{$escape}[2J"; end
 	# set start
-	def self.set_start; "\x1b[s"; end
+	def self.set_start; "#{$escape}[s"; end
 	# goto start
-	def self.goto_start; "\x1b[u"; end
+	def self.goto_start; "#{$escape}[u"; end
 	# Go home
-	def self.go_home; "\x1b[H"; end
+	def self.go_home; "#{$escape}[H"; end
 	# Goto position
-	def self.position x,y; "\x1b[#{y};#{x}f"; end
+	def self.position x,y; "#{$escape}[#{y};#{x}f"; end
 end
 
 ## Screen Utils Class
@@ -47,9 +47,15 @@ class Utils
 		#IO.console.winsize
 		#rescue LoadError
 		# unix only but each ruby
-		[Integer(`tput lines`), Integer(`tput cols`)]
-
-		#if !ENV["LINES"].nil?
+		begin
+			return [Integer(`tput lines`), Integer(`tput cols`)]
+		rescue
+			require 'curses'
+			Curses.init_screen
+			out = [Curses.lines, Curses.cols]
+			Curses.close_screen
+			return out
+		end		
 		#	[ENV["LINES"], ENV["COLUMNS"]]
 		#else
 		#	[Integer(`tput lines`), Integer(`tput cols`)]

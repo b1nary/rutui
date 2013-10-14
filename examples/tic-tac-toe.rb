@@ -6,6 +6,7 @@
 #
 require 'rutui'
 
+RuTui::Theme.use :basic
 screen = RuTui::Screen.new
 RuTui::ScreenManager.add :default, screen
 RuTui::ScreenManager.set_current :default
@@ -77,5 +78,5 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	end
 end
 
-puts RuTui::Color.clear
-puts RuTui::Color.clear_color
+puts RuTui::Ansi.clear
+puts RuTui::Ansi.clear_color

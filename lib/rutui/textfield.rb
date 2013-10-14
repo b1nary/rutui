@@ -64,7 +64,7 @@ class Textfield < BaseObject
 	def write char
 		if @focus
 			@text += char.chr if @allow.include? char.chr
-			@text = @text[0..-2] if char == 127
+			@text = @text[0..-2] if char == 127 or char == 8 # its 8 on windows
 		end
 		create
 	end
