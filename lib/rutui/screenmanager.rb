@@ -6,6 +6,7 @@
 class ScreenManager
 	@@screens = {}
 	@@current = :default
+	@@blocked = false
 
 	# Set a screen
 	#  Ex.: ScreenManager.set :default, Screen.new
@@ -60,17 +61,26 @@ class ScreenManager
 		autodraw = options[:autodraw]
 		@autofit = options[:autofit]
 		@autofit = true if @autofit.nil?
+		@timeout = options[:timeout]
 		@lastsize = nil
+		@lastaction = Time.now.to_f
 		print Ansi.clear
 		print Ansi.set_start
 		Utils.init
 		ScreenManager.draw
 
 		while true
-			key = Utils.gets
-			yield key
-			ScreenManager.refit if @autofit
-			ScreenManager.draw if autodraw
+			if !@@blocked
+				@@blocked = true
+				key = Utils.gets
+				yield key
+				if (@timeout.nil? or (@lastaction < Time.now.to_f-@timeout))
+					@lastaction = Time.now.to_f
+					ScreenManager.refit if @autofit
+					ScreenManager.draw if autodraw
+				end
+				@@blocked = false
+			end
 		end
 	end
 end

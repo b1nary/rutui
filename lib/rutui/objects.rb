@@ -35,6 +35,7 @@ class BaseObject
 
 	# "special" each methods for objects
 	def each 
+		return if @obj.nil?
 		@obj.each_with_index do |row,row_count|
 			row.each_with_index do |pixel,col_count|
 				yield row_count, col_count, pixel
@@ -140,7 +141,7 @@ class Line < BaseObject
 		@direction = options[:direction]
 		@direction = :horizontal if @direction.nil?
 
-		return if @x.nil? or @y.nil? or @width.nil?
+		return if @x.nil? or @y.nil? or @length.nil?
 		@pixel = options[:pixel]
 		@endpixel = options[:endpixel]
 
@@ -152,6 +153,7 @@ class Line < BaseObject
 	# Create Line
 	# can be recalled any time on attribute changes
 	def create
+		@obj = []
 		if @direction == :horizontal
 			@obj = [Array.new(@length){ @pixel }]
 		else
@@ -281,5 +283,27 @@ class Text < BaseObject
 
 	def get_text
 		@text
+	end
+end
+
+## Dot Object Class
+# Single pixel element
+#
+# Attributes (all accessible):
+# 	:x				MUST
+# 	:y				MUST
+#	:pixel			MUST - Pixel
+#
+class Dot < BaseObject
+	def initialize options
+		@x = options[:x]
+		@y = options[:y]
+		@pixel = options[:pixel]
+		return if @x.nil? or @y.nil? or @pixel.nil?
+		create
+	end
+
+	def create
+		@obj = [[ @pixel ]]
 	end
 end

@@ -31,6 +31,11 @@ If you are on windows please take a look at [Ansicon](https://github.com/adoxa/a
 
 ## Changelog
 
+* 0.5
+  * Fixed refactoring bugs
+  * Added "Dot" object
+  * Add color inheritance (trough -1) to objects
+  * Added Timeout for Screenmanager for a minimal time per operation
 * 0.4
   * Refactor structure
   * better printing (much less flicker)

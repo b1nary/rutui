@@ -46,7 +46,7 @@ class Screen
 	def add_static object
 		@statics << object if !@statics.include? object
 		object.each do |ri,ci,pixel|
-			@smap[object.y+ri][object.x+ci] = pixel if !pixel.nil? and object.y+ri > 0 and object.y+ci > 0
+			@smap[object.y+ri][object.x+ci] = pixel if !pixel.nil? and object.y+ri >= 0 and object.y+ci >= 0
 		end
 	end
 
@@ -72,12 +72,23 @@ class Screen
 		@objects.each do |o|
 			next if o.x.nil? or o.y.nil? 
 			o.each do |ri,ci,pixel|
-				@map[o.y + ri][o.x + ci] = pixel if !pixel.nil? and o.y+ri > 0 and o.x+ci > 0 and o.y+ri < @map.size and o.x+ci < @map[0].size
+				if !pixel.nil? and o.y+ri >= 0 and o.x+ci >= 0 and o.y+ri < @map.size and o.x+ci < @map[0].size
+					# -1 enables a "transparent" effect
+					if pixel.bg == -1
+						pixel.bg = @map[o.y + ri][o.x + ci].bg if !@map[o.y + ri][o.x + ci].nil?
+						pixel.bg = Theme.get(:background).bg if pixel.bg == -1
+					end
+					if pixel.fg == -1
+						pixel.fg = @map[o.y + ri][o.x + ci].fg if !@map[o.y + ri][o.x + ci].nil?
+						pixel.fg = Theme.get(:background).fg if pixel.fg == -1
+					end
+					@map[o.y + ri][o.x + ci] = pixel
+				end
 			end
 		end
 
-		out = "" # Color.go_home
-		# an DRAW!
+		out = "\r\n" # Color.go_home
+		# and DRAW!
 		@map.each do |line|
 			line.each do |pixel|
 				if pixel != lastpixel
@@ -101,7 +112,7 @@ class Screen
 		end
 
 		# draw out
-		print out
+		print out.chomp
 		$stdout.flush
 	end
 
