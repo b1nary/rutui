@@ -1,7 +1,7 @@
 require 'rutui'
 
 screen = RuTui::Screen.new
-@tf1 = RuTui::Textfield.new({ :x => 1, :y => 1, :pixel => Pixel.new(12,44,"-") })
+@tf1 = RuTui::Textfield.new({ :x => 1, :y => 1, :pixel => Pixel.new(12,44,"-"), :focus_pixel => Pixel.new(15,64,"-") })
 @tf2 = RuTui::Textfield.new({ :x => 1, :y => 4, :password => true })
 
 screen.add @tf1
@@ -16,14 +16,16 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	break if key.chr == "q" or key == 3 # CTRL+C
 
 	if @focus == 1 and key == 9
-		@tf2.focus = false
+		@tf2.take_focus
 		@focus = 0
 		@tf1.set_focus
 	elsif @focus == 0 and key == 9
-		@tf1.focus = false
+		@tf1.take_focus
 		@focus = 1
 		@tf2.set_focus
 	end 
 	@tf1.write key if @tf1.focus
 	@tf2.write key if @tf2.focus
 end
+
+print Ansi.clear_color + Ansi.clear

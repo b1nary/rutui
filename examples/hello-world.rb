@@ -57,3 +57,5 @@ text.fg = 12
 screen.draw
 
 # this was the very basic hello world example ;)
+
+print Ansi.clear_color + Ansi.clear

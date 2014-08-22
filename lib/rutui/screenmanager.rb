@@ -82,5 +82,6 @@ class ScreenManager
 				@@blocked = false
 			end
 		end
+
 	end
 end

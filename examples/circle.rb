@@ -1,4 +1,4 @@
-require '../rutui.rb'
+require 'rutui'
 
 radius = ARGV[0].to_i
 radius = 6 if radius.nil?

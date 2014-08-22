@@ -46,3 +46,4 @@ end
 
 
 # this was the a little deeper hello world example ;)
+print Ansi.clear_color + Ansi.clear

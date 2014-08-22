@@ -40,3 +40,5 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	end
 
 end
+
+print Ansi.clear_color + Ansi.clear

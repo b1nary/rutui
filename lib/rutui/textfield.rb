@@ -12,6 +12,7 @@
 # 	:x				MUST
 # 	:y				MUST
 #	:pixel			- pixel from which colors get inherted
+#   :focus_pixel    - pixel used when on focus (defaults to pixel)
 # 	:allow			- allowed chars
 # 	:password		- boolean: is password field?
 # 	:focus 			- has focus?
@@ -25,6 +26,9 @@ class Textfield < BaseObject
 
 		@pixel = options[:pixel]
 		@pixel = Theme.get(:border) if @pixel.nil?
+
+		@focus_pixel = options[:focus_pixel]
+		@focus_pixel = @pixel if @focus_pixel.nil?
 
 		@x = options[:x]
 		@x = 1 if @x.nil?
@@ -51,6 +55,14 @@ class Textfield < BaseObject
 	def set_focus
 		@focus = true
 		Ansi.position @x, @y
+		create
+	end
+
+	##
+	# take focus
+	def take_focus
+		@focus = false
+		create
 	end
 
 	##
@@ -102,10 +114,18 @@ class Textfield < BaseObject
 		end
 
 		text.to_s.split("").each do |t|
-			_obj << Pixel.new(@pixel.fg, @pixel.bg, t)
+			if @focus && @focus_pixel != @pixel
+				_obj << Pixel.new(@focus_pixel.fg, @focus_pixel.bg, t)
+			else
+				_obj << Pixel.new(@pixel.fg, @pixel.bg, t)
+			end
 		end
-		
-		_obj << Pixel.new(@pixel.fg, @pixel.bg, "_")
+
+		if @focus && @focus_pixel != @pixel
+			_obj << Pixel.new(@focus_pixel.fg, @focus_pixel.bg, "_")
+		else
+			_obj << Pixel.new(@pixel.fg, @pixel.bg, "_")
+		end
 		obj << _obj
 		@obj = obj
 	end

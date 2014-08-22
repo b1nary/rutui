@@ -27,3 +27,5 @@ RuTui::ScreenManager.loop({ :autofit => true, :autodraw => false }) do |key|
 	sprites.set_current "down"  if key.chr == "s"
 
 end
+
+print Ansi.clear_color + Ansi.clear
