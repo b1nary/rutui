@@ -3,6 +3,7 @@
 #
 # Methods:
 # 	:set_focus 		Set focus to this textfield
+#   :take_focus     Unset focus
 # 	:write CHAR 	Write char to textfield (if has focus)
 # 	:set_text TEXT 	Set text
 # 	:get_text 		Returns text
@@ -18,7 +19,7 @@
 # 	:focus 			- has focus?
 #
 class Textfield < BaseObject
-	attr_accessor :focus, :password, :border, :allow
+	attr_accessor :focus, :password, :allow
 
 	def initialize options
 		@width = 14
