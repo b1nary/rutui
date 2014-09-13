@@ -242,7 +242,8 @@ end
 #    :blink	        - true|false|nil	Blink text (Not supported everywhere)
 #
 class Text < BaseObject
-	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, :thin, :italic, :underline, :blink, :max_width
+	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, 
+		:thin, :italic, :underline, :blink, :max_width, :pixel
 	@@rainbow = nil
 
 	def initialize options
@@ -253,8 +254,13 @@ class Text < BaseObject
 		@text = options[:text]
 		@x = options[:x]
 		@y = options[:y]
+		@pixel = options[:pixel]
 		@bg = options[:background]
 		@fg = options[:foreground]
+		if !@pixel.nil?
+			@bg = @pixel.bg
+			@fg = @pixel.fg
+		end
 		@bg = Theme.get(:background).bg if @bg.nil?
 		@fg = Theme.get(:textcolor) if @fg.nil?
 		@bold 		= options[:bold] || false

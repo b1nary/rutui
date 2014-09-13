@@ -2,7 +2,7 @@
 
 # RuTui
 
-RuTui is a lightweight, pure ruby alternative to known commandline interfaces like nCurses. Most CLI/TUI Frameworks sit on an C like approach, are very limited or are just not beautiful enough to use. This lib aims to be different, to be easy, modular and just Ruby like to handle. There is an inbuild color support and input controlling which sits on top of unix standard.
+RuTui is a lightweight, pure ruby alternative to known commandline interfaces like nCurses. Most CLI/TUI Frameworks sit on an C like approach, are very limited or are just not beautiful enough to use. This lib aims to be different, to be easy, modular and just Ruby like to handle. There is an inbuild color support and input controlling which sits on top of unix standards.
 
 [**Take a look at the wiki**](https://github.com/b1nary/rutui/wiki)
 
@@ -19,7 +19,7 @@ RuTui is a lightweight, pure ruby alternative to known commandline interfaces li
 -  Tables
 -  ...
 
-You can use this in many different application purposes. You can create simple CLI's for your scripts, you can make awesome ASCII based data visualisations. Its also basicly a small game engine.
+You can use this in many different application purposes. You can create simple CLI's for your scripts, you can make awesome ASCII based data visualisations. Its also basicaly a small game engine.
 
 ## Installation
 
@@ -33,6 +33,7 @@ If you are on windows please take a look at [Ansicon](https://github.com/adoxa/a
 
 * 0.6 (indev)
   * Added text style options (bold/italic/...)
+  * Added multiline text support
   * Add focus pixel to textfield
   * _Added "Checkbox" object_
   * _Added "Radio" object_
