@@ -228,20 +228,27 @@ end
 # Creates an Text element
 #
 # Attributes (all accessible):
-# 	:x				MUST
-# 	:y				MUST
-#	:text			- the text to draw
-#	:background		- Background color (0-255)
-#	:foreground 	- Foreground color (0-255)
-# 	:rainbow 		- true|false|none	Rainbow text
+# 	 :x				MUST
+# 	 :y				MUST
+#	 :text			- the text to draw
+#	 :background	- Background color (0-255)
+#	 :foreground 	- Foreground color (0-255)
+# 	 :rainbow 		- true|false|none	Rainbow text
+#    :bold 			- true|false|nil	Bold text
+#    :italic        - true|false|nil	Italic text (Not supported everywhere)
+#    :thin	        - true|false|nil	Thin text (Not supported everywhere)
+#    :underline     - true|false|nil	Underline text (Not supported everywhere)
+#    :blink	        - true|false|nil	Blink text (Not supported everywhere)
 #
 class Text < BaseObject
-	attr_accessor :bg, :fg, :text, :do_rainbow
+	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, :thin, :italic, :underline, :blink
 	@@rainbow = nil
 
 	def initialize options
-		@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
 		@do_rainbow = options[:rainbow]
+		if @do_rainbow
+			@@rainbow = Theme.get(:rainbow) if @@rainbow.nil?
+		end
 		@text = options[:text]
 		@x = options[:x]
 		@y = options[:y]
@@ -249,6 +256,11 @@ class Text < BaseObject
 		@fg = options[:foreground]
 		@bg = Theme.get(:background).bg if @bg.nil?
 		@fg = Theme.get(:textcolor) if @fg.nil?
+		@bold 		= options[:bold] || false
+		@thin 		= options[:thin] || false
+		@italic 	= options[:italic] || false
+		@underline 	= options[:underline] || false
+		@blink 		= options[:blink] || false
 		return if @x.nil? or @y.nil?
 
 		@height = 1
@@ -265,6 +277,11 @@ class Text < BaseObject
 		@obj = []
 		tmp = []
 		@text.split("").each do |t|
+			t = Ansi.bold(t) if @bold
+			t = Ansi.thin(t) if @thin
+			t = Ansi.italic(t) if @italic
+			t = Ansi.underline(t) if @underline
+			t = Ansi.blink(t) if @blink
 			if @do_rainbow
 				tmp << Pixel.new(@@rainbow[rainbow],@bg,t)
 				rainbow += 1
