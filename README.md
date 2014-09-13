@@ -32,6 +32,7 @@ If you are on windows please take a look at [Ansicon](https://github.com/adoxa/a
 ## Changelog
 
 * 0.6 (indev)
+  * Added text style options (bold/italic/...)
   * Add focus pixel to textfield
   * _Added "Checkbox" object_
   * _Added "Radio" object_

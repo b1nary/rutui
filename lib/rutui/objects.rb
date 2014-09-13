@@ -233,6 +233,7 @@ end
 #	 :text			- the text to draw
 #	 :background	- Background color (0-255)
 #	 :foreground 	- Foreground color (0-255)
+#    :max_width 	- with max_width defined text breaks to next line automatically
 # 	 :rainbow 		- true|false|none	Rainbow text
 #    :bold 			- true|false|nil	Bold text
 #    :italic        - true|false|nil	Italic text (Not supported everywhere)
@@ -241,7 +242,7 @@ end
 #    :blink	        - true|false|nil	Blink text (Not supported everywhere)
 #
 class Text < BaseObject
-	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, :thin, :italic, :underline, :blink
+	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, :thin, :italic, :underline, :blink, :max_width
 	@@rainbow = nil
 
 	def initialize options
@@ -261,6 +262,7 @@ class Text < BaseObject
 		@italic 	= options[:italic] || false
 		@underline 	= options[:underline] || false
 		@blink 		= options[:blink] || false
+		@max_width 	= options[:max_width]
 		return if @x.nil? or @y.nil?
 
 		@height = 1
@@ -275,22 +277,30 @@ class Text < BaseObject
 		end
 		@width = @text.size
 		@obj = []
-		tmp = []
-		@text.split("").each do |t|
-			t = Ansi.bold(t) if @bold
-			t = Ansi.thin(t) if @thin
-			t = Ansi.italic(t) if @italic
-			t = Ansi.underline(t) if @underline
-			t = Ansi.blink(t) if @blink
-			if @do_rainbow
-				tmp << Pixel.new(@@rainbow[rainbow],@bg,t)
-				rainbow += 1
-				rainbow = 0 if rainbow >= @@rainbow.size
-			else
-				tmp << Pixel.new(@fg,@bg,t)
-			end
+
+		texts = [@text]
+		if !@max_width.nil?
+			texts = @text.chars.each_slice(@max_width).map(&:join)
 		end
-		@obj << tmp
+
+		texts.each do |l| 
+			tmp = []
+			l.split("").each do |t|
+				t = Ansi.bold(t) if @bold
+				t = Ansi.thin(t) if @thin
+				t = Ansi.italic(t) if @italic
+				t = Ansi.underline(t) if @underline
+				t = Ansi.blink(t) if @blink
+				if @do_rainbow
+					tmp << Pixel.new(@@rainbow[rainbow],@bg,t)
+					rainbow += 1
+					rainbow = 0 if rainbow >= @@rainbow.size
+				else
+					tmp << Pixel.new(@fg,@bg,t)
+				end
+			end
+			@obj << tmp
+		end
 	end
 
 	def set_text text
