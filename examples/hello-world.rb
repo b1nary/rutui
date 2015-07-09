@@ -1,6 +1,11 @@
+#!/usr/bin/env ruby
 #
 # Hello world example for RuTui
 #
+
+lib_dir = File.dirname(__FILE__) + '/../lib'
+$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+
 require 'rutui'
 
 # Create Screen

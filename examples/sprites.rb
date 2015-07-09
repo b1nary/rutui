@@ -1,3 +1,8 @@
+#!/usr/bin/env ruby
+
+lib_dir = File.dirname(__FILE__) + '/../lib'
+$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+
 require 'rutui'
 
 screen = RuTui::Screen.new
@@ -6,7 +11,8 @@ size = RuTui::Utils.winsize
 
 screen.add_static RuTui::Text.new({ :x => size[1]/2-14, :y  => 2, :text => "use WASD or q/CTRL+C to quit" })
 
-sprites = RuTui::Sprite.new({ :x => size[1]/2-6, :y => 5, :file => 'res/space-invader_sprite.axx' })
+res_dir = File.dirname(__FILE__) + '/res/'
+sprites = RuTui::Sprite.new({ :x => size[1]/2-6, :y => 5, :file => res_dir + 'space-invader_sprite.axx' })
 screen.add sprites
 
 Thread.new {

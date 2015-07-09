@@ -1,9 +1,14 @@
+#!/usr/bin/env ruby
 #
 # Tic-Tac-Toe
 #
 # This is the first example done in this library
 # Its more a proof of concept than an read worthy example
 #
+
+lib_dir = File.dirname(__FILE__) + '/../lib'
+$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+
 require 'rutui'
 
 RuTui::Theme.use :basic
