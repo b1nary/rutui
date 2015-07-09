@@ -4,7 +4,7 @@
 # Example:
 #  # Comments ...
 #  nil|A:1:0|A|A:2
-# 
+#
 #  nil 		empty pixel
 #	 A:1:0	Char is A, 1 is foreground, 0 is background
 #	 A			Char only (colors default)
@@ -15,7 +15,7 @@ class Axx < BaseObject
 		@file = options[:file]
 		@x = options[:x]
 		@y = options[:y]
-	
+
 		return if @file.nil?
 		return if !File.exists? @file
 

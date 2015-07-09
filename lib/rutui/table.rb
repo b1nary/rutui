@@ -133,7 +133,7 @@ class Table < BaseObject
 				fg = @fg
 				fg = @cols[index][:color] if !@cols[index].nil? and !@cols[index][:color].nil?
 
-				if @highlight_direction == :vertical 
+				if @highlight_direction == :vertical
 					if index == @highlight
 						bg = @hover
 					else
@@ -170,7 +170,7 @@ class Table < BaseObject
 		@table.sort! { |a,b| a[col] <=> b[col] }
 		@table.reverse! if @reverse
 		if @reverse == false
-			@reverse = true 
+			@reverse = true
 		else
 			@reverse = false
 		end

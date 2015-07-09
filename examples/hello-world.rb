@@ -35,7 +35,7 @@ text.set_text "Yay!"
 
 # and redraw
 screen.draw
- 
+
 # Lets wait for ENTER key again
 a = gets
 

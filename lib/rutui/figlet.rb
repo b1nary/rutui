@@ -9,7 +9,7 @@
 #	 :font		Use a loaded font file
 #	 :rainbow	true|any
 #	 :colors	Array of example pixels used for colors
-#		
+#
 #
 # Example:
 #	 Figlet.add :test, "path/to/font.flf"
@@ -50,12 +50,12 @@ class Figlet < BaseObject
 
 		create
 	end
-	
+
 	# Create Figlet text object
 	# Recall it any time when attributes have changed
 	def create
 		obj = []
-		@@fonts[@font]['n'].size.times do 
+		@@fonts[@font]['n'].size.times do
 			obj << []
 		end
 		current = 0
@@ -119,7 +119,7 @@ class Figlet < BaseObject
 			config = data[0].split(" ")
 
 			# Remove Comments (Size is in info line)
-			config[5].to_i.times do 
+			config[5].to_i.times do
 				data.delete_at(0)
 			end
 
@@ -130,7 +130,7 @@ class Figlet < BaseObject
 			rest = config[1].to_i - height
 
 			@@fonts[name] = {}
-			
+
 			@@chars.each do |i|
 				out = []
 

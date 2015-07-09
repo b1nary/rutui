@@ -34,7 +34,7 @@ class BaseObject
 	end
 
 	# "special" each methods for objects
-	def each 
+	def each
 		return if @obj.nil?
 		@obj.each_with_index do |row,row_count|
 			row.each_with_index do |pixel,col_count|
@@ -61,7 +61,7 @@ end
 #  Box.new({ :x => 1, :y => 42, :width => 10, :height => 5, :corner => Pixel.new(1,2,"#"), :fill => Pixel.new(4,6,":") })
 #
 class Box < BaseObject
-	attr_accessor :fill, :width, :height, :vertical, :horizontal, :corner 
+	attr_accessor :fill, :width, :height, :vertical, :horizontal, :corner
 
 	# initialize object (see above)
 	def initialize options
@@ -88,7 +88,7 @@ class Box < BaseObject
 		create
 	end
 
-	# Create Box 
+	# Create Box
 	# can be recalled any time on attribute changes
 	def create
 		if !@fill.nil?
@@ -168,7 +168,7 @@ end
 
 ## Circle Class
 # draw a circle
-# 
+#
 # thx to: http://rubyquiz.strd6.com/quizzes/166-circle-drawing
 #
 # Attributes (all accessible):
@@ -202,25 +202,25 @@ class Circle < BaseObject
 	# can be recalled any time on attribute changes
 	def create
 		obj = []
-    (0..(@radius*2)).each do |x|
-      (0..(@radius*2)).each do |y|
+		(0..(@radius*2)).each do |x|
+			(0..(@radius*2)).each do |y|
 				obj[y] = [] if obj[y].nil?
-        obj[y][x] = distance_from_center(x,y).round == @radius ? @pixel : @fill
-      end
-    end
+				obj[y][x] = distance_from_center(x,y).round == @radius ? @pixel : @fill
+			end
+		end
 		@obj = obj
 	end
 
-	private 
+	private
 	def distance_from_center(x,y)
-    a = calc_side(x)
-    b = calc_side(y)
-    return Math.sqrt(a**2 + b**2)
-  end
+		a = calc_side(x)
+		b = calc_side(y)
+		return Math.sqrt(a**2 + b**2)
+	end
 
-  def calc_side(z)
-    z < @radius ? (@radius - z) : (z - @radius)
-  end
+	def calc_side(z)
+		z < @radius ? (@radius - z) : (z - @radius)
+	end
 
 end
 
@@ -242,7 +242,7 @@ end
 #    :blink	        - true|false|nil	Blink text (Not supported everywhere)
 #
 class Text < BaseObject
-	attr_accessor :bg, :fg, :text, :do_rainbow, :bold, 
+	attr_accessor :bg, :fg, :text, :do_rainbow, :bold,
 		:thin, :italic, :underline, :blink, :max_width, :pixel
 	@@rainbow = nil
 
@@ -289,7 +289,7 @@ class Text < BaseObject
 			texts = @text.chars.each_slice(@max_width).map(&:join)
 		end
 
-		texts.each do |l| 
+		texts.each do |l|
 			tmp = []
 			l.split("").each do |t|
 				t = Ansi.bold(t) if @bold

@@ -70,7 +70,7 @@ class Screen
 
 		# get all the objects
 		@objects.each do |o|
-			next if o.x.nil? or o.y.nil? 
+			next if o.x.nil? or o.y.nil?
 			o.each do |ri,ci,pixel|
 				if !pixel.nil? and o.y+ri >= 0 and o.x+ci >= 0 and o.y+ri < @map.size and o.x+ci < @map[0].size
 					# -1 enables a "transparent" effect

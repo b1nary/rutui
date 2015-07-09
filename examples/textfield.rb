@@ -23,7 +23,7 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 		@tf1.take_focus
 		@focus = 1
 		@tf2.set_focus
-	end 
+	end
 	@tf1.write key if @tf1.focus
 	@tf2.write key if @tf2.focus
 end

@@ -1,7 +1,7 @@
 ## Ansi Class
 # This Class generates ansi strings for the
 # Terminal based output.
-# 
+#
 # Its only tested on Linux, should work atleast
 # on other unix based systems (Use a proper ansi,
 # shell/simulator on windows, and you'll be fine)
@@ -20,13 +20,13 @@ class Ansi
 	def self.foreground color; self.fg color; end
 	# Set bold
 	def self.bold text; "#{$escape}[1m#{text}"; end
-	# Set thin 
+	# Set thin
 	def self.thin text; "#{$escape}[2m#{text}"; end
-	# Set italic 
+	# Set italic
 	def self.italic text; "#{$escape}[3m#{text}"; end
-	# Set underline 
+	# Set underline
 	def self.underline text; "#{$escape}[4m#{text}"; end
-	# Set blink 
+	# Set blink
 	def self.blink text; "#{$escape}[5m#{text}"; end
 	# Clear all color
 	def self.clear_color; "#{$escape}[0m"; end
@@ -48,7 +48,7 @@ end
 class Utils
 	# Get Windows size
 	def self.winsize
- 		# > Ruby 1.9.3
+		# > Ruby 1.9.3
 		#require 'io/console'
 		#IO.console.winsize
 		#rescue LoadError
@@ -61,15 +61,15 @@ class Utils
 			out = [Curses.lines, Curses.cols]
 			Curses.close_screen
 			return out
-		end		
+		end
 		#	[ENV["LINES"], ENV["COLUMNS"]]
 		#else
 		#	[Integer(`tput lines`), Integer(`tput cols`)]
 		#end
 	end
 
-	# Get input char without enter 
-	# UNIX only! 
+	# Get input char without enter
+	# UNIX only!
 	def self.gets
 		# Win32API.new("crtdll", "_getch", [], "L").Call).chr
 		begin

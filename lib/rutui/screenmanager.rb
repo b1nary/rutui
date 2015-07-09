@@ -1,7 +1,7 @@
 # This file contains the ScreenManager
 
 ## Screen Manager Class
-# Static class to handle screens 
+# Static class to handle screens
 #
 class ScreenManager
 	@@screens = {}
@@ -56,7 +56,7 @@ class ScreenManager
 	end
 
 	# Raw Game Loop
-	#  Ex.: ScreenManager.loop({ :autodraw => true, :autofit => true }){ |key| p key } 
+	#  Ex.: ScreenManager.loop({ :autodraw => true, :autofit => true }){ |key| p key }
 	def self.loop options
 		autodraw = options[:autodraw]
 		@autofit = options[:autofit]

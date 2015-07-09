@@ -20,7 +20,7 @@ box = RuTui::Box.new({ :x => size[1]/2-13, :y => 4, :width => 26, :height => 5 }
 screen.add_static box
 
 # Now lets create an text element into the box!
-text = RuTui::Text.new( :x => size[1]/2-11, :y => 6, :text => "You klicked: nil (nil)" ) 
+text = RuTui::Text.new( :x => size[1]/2-11, :y => 6, :text => "You klicked: nil (nil)" )
 last = RuTui::Text.new( :x => size[1]/2-2, :y => 12, :text => "Last: nil (nil)")
 lost = RuTui::Text.new( :x => size[1]/2-2, :y => 13, :text => "Last: nil (nil)")
 

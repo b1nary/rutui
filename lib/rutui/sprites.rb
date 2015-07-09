@@ -24,7 +24,7 @@ class Sprite < BaseObject
 		if File.exists? @file
 			data = File.open(@file).read
 			# AXX Format
-			if data.include? '---' and data.include? '| :' 
+			if data.include? '---' and data.include? '| :'
 				out = []
 				data = data.split("---")
 				while data.size > 0
