@@ -116,5 +116,11 @@ module RuTui
 			print out.chomp
 			$stdout.flush
 		end
+
+		# Hides the cursor
+		def self.hide_cursor
+			system("tput civis")
+		end
+
 	end
 end

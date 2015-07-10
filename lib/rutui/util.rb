@@ -67,10 +67,5 @@ module RuTui
 			end
 			return char.ord
 		end
-
-		# Hides the cursor
-		def self.init
-			system("tput civis")
-		end
 	end
 end

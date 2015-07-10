@@ -66,7 +66,8 @@ module RuTui
 			@lastaction = Time.now.to_f
 			print RuTui::Ansi.clear
 			print RuTui::Ansi.set_start
-			Utils.init
+			Screen.hide_cursor
+
 			ScreenManager.draw
 
 			while true
