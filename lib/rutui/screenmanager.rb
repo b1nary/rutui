@@ -42,7 +42,7 @@ module RuTui
 
 		# Refit screen size
 		def self.refit
-			size = Utils.winsize
+			size = Screen.size
 			if @autofit and size != @lastsize
 				@@screens[@@current].rescreen
 				@lastsize = size
@@ -73,7 +73,7 @@ module RuTui
 			while true
 				if !@@blocked
 					@@blocked = true
-					key = Utils.gets
+					key = Screen.gets
 					yield key
 					if (@timeout.nil? or (@lastaction < Time.now.to_f-@timeout))
 						@lastaction = Time.now.to_f

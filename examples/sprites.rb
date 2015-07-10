@@ -7,7 +7,7 @@ require 'rutui'
 
 screen = RuTui::Screen.new
 
-size = RuTui::Utils.winsize
+size = RuTui::Screen.size
 
 screen.add_static RuTui::Text.new({ :x => size[1]/2-14, :y  => 2, :text => "use WASD or q/CTRL+C to quit" })
 

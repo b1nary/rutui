@@ -16,7 +16,7 @@ RuTui::Theme.use :light
 screen = RuTui::Screen.new
 
 # Lets get the shells size
-size = RuTui::Utils.winsize
+size = RuTui::Screen.size
 
 # Lets create a box again, this time stick it to the middle
 box = RuTui::Box.new({ :x => size[1]/2-13, :y => 4, :width => 26, :height => 5 })

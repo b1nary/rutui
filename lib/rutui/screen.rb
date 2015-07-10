@@ -1,5 +1,7 @@
 # This File contains the Screen Class
 
+require 'io/console'
+
 module RuTui
 	## Screen Class
 	# The Screen is the root element of your app.
@@ -8,7 +10,7 @@ module RuTui
 	class Screen
 		# Initialize me with a default pixel, if you want
 		def initialize default_pixel = Theme.get(:background)
-			size = Utils.winsize
+			size = Screen.size
 			@smap = Array.new(size[0]){ Array.new(size[1]) }
 			@map = @smap.dup
 			@default = default_pixel
@@ -20,7 +22,7 @@ module RuTui
 
 		# regen screen (size change?)
 		def rescreen
-			size = Utils.winsize
+			size = Screen.size
 			@smap = Array.new(size[0]){ Array.new(size[1]) }
 
 			@statics.each do |s|
@@ -120,6 +122,21 @@ module RuTui
 		# Hides the cursor
 		def self.hide_cursor
 			system("tput civis")
+		end
+
+		# Get input char without enter
+		def self.gets
+			begin
+				IO.console.raw!
+				char = IO.console.getch
+			ensure
+				IO.console.cooked!
+			end
+			return char.ord
+		end
+
+		def self.size
+			IO.console.winsize
 		end
 
 	end

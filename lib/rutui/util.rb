@@ -1,5 +1,3 @@
-require 'io/console'
-
 module RuTui
 	## Ansi Class
 	# This Class generates ansi strings for the
@@ -45,27 +43,5 @@ module RuTui
 		def self.go_home; "#{@@escape}[H"; end
 		# Goto position
 		def self.position x,y; "#{@@escape}[#{y};#{x}f"; end
-	end
-
-	## Screen Utils Class
-	# Static Stuff that fits nowhere else
-	#
-	class Utils
-		# Get Windows size
-		def self.winsize
-			IO.console.winsize
-		end
-
-		# Get input char without enter
-		# UNIX only!
-		def self.gets
-			begin
-				IO.console.raw!
-				char = IO.console.getch
-			ensure
-				IO.console.cooked!
-			end
-			return char.ord
-		end
 	end
 end

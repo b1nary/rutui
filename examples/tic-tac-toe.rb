@@ -13,10 +13,11 @@ require 'rutui'
 
 RuTui::Theme.use :basic
 screen = RuTui::Screen.new
+
 RuTui::ScreenManager.add :default, screen
 RuTui::ScreenManager.set_current :default
 
-@size = RuTui::Utils.winsize
+@size = RuTui::Screen.size
 @map = [[0,0,0],[0,0,0],[0,0,0]]
 @current = "X"
 pos = [0,0]
