@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 require 'rutui'
 
 screen = RuTui::Screen.new
-@tf1 = RuTui::Textfield.new({ :x => 1, :y => 1, :pixel => Pixel.new(12,44,"-"), :focus_pixel => Pixel.new(15,64,"-") })
+@tf1 = RuTui::Textfield.new({ :x => 1, :y => 1, :pixel => RuTui::Pixel.new(12,44,"-"), :focus_pixel => RuTui::Pixel.new(15,64,"-") })
 @tf2 = RuTui::Textfield.new({ :x => 1, :y => 4, :password => true })
 
 screen.add @tf1
@@ -33,4 +33,4 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	@tf2.write key if @tf2.focus
 end
 
-print Ansi.clear_color + Ansi.clear
+print RuTui::Ansi.clear_color + RuTui::Ansi.clear

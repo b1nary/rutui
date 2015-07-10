@@ -51,4 +51,4 @@ end
 
 
 # this was the a little deeper hello world example ;)
-print Ansi.clear_color + Ansi.clear
+print RuTui::Ansi.clear_color + RuTui::Ansi.clear

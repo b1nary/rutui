@@ -32,23 +32,3 @@ $escape = "\033" if RUBY_PLATFORM =~ /(win32|w32)/
 #		puts "You need the win32console gem for ansi/color support"
 #	end
 #end
-
-module RuTui
-	Ansi 	= ::Ansi
-	Utils 	= ::Utils
-	Pixel 	= ::Pixel
-	Theme 	= ::Theme
-	BaseObject = ::BaseObject
-	Box 	= ::Box
-	Line 	= ::Line
-	Circle 	= ::Circle
-	Text 	= ::Text
-	Screen 	= ::Screen
-	ScreenManager = ::ScreenManager
-	Figlet 	= ::Figlet
-	Axx 	= ::Axx
-	Sprite 	= ::Sprite
-	Table 	= ::Table
-	Textfield = ::Textfield
-	Checkbox = ::Checkbox
-end

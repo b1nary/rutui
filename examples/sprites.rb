@@ -34,4 +34,4 @@ RuTui::ScreenManager.loop({ :autofit => true, :autodraw => false }) do |key|
 
 end
 
-print Ansi.clear_color + Ansi.clear
+print RuTui::Ansi.clear_color + RuTui::Ansi.clear

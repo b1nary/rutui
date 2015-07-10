@@ -16,10 +16,10 @@ screen = RuTui::Screen.new
 		[3,"an", "table","plus some random way to long text"]
 	],
 	:cols => [
-		{ :title => "ID", 	 :color => Pixel.random.fg, :title_color => Pixel.random.fg, :length => 3 },
-		{ :title => "Col 1", :color => Pixel.random.fg, :title_color => Pixel.random.fg },
-		{ :title => "Col 2", :color => Pixel.random.fg, :title_color => Pixel.random.fg },
-		{ :title => "Col 3", :color => Pixel.random.fg, :title_color => Pixel.random.fg, :max_length => 10 }
+		{ :title => "ID", 	 :color => RuTui::Pixel.random.fg, :title_color => RuTui::Pixel.random.fg, :length => 3 },
+		{ :title => "Col 1", :color => RuTui::Pixel.random.fg, :title_color => RuTui::Pixel.random.fg },
+		{ :title => "Col 2", :color => RuTui::Pixel.random.fg, :title_color => RuTui::Pixel.random.fg },
+		{ :title => "Col 3", :color => RuTui::Pixel.random.fg, :title_color => RuTui::Pixel.random.fg, :max_length => 10 }
 	],
 	:header => true,
 	:hover => 32,
@@ -46,4 +46,4 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 
 end
 
-print Ansi.clear_color + Ansi.clear
+print RuTui::Ansi.clear_color + RuTui::Ansi.clear

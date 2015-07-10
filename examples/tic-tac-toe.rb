@@ -28,13 +28,13 @@ screen.add_static text
 screen.add_static by
 screen.add info
 
-hor = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"-")
-ver = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"|")
-cor = RuTui::Pixel.new(Theme.get(:border).fg,Theme.get(:background).bg,"*")
+hor = RuTui::Pixel.new(RuTui::Theme.get(:border).fg,RuTui::Theme.get(:background).bg,"-")
+ver = RuTui::Pixel.new(RuTui::Theme.get(:border).fg,RuTui::Theme.get(:background).bg,"|")
+cor = RuTui::Pixel.new(RuTui::Theme.get(:border).fg,RuTui::Theme.get(:background).bg,"*")
 
-xhor = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"-")
-xver = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"|")
-xcor = RuTui::Pixel.new(Theme.get(:textcolor),Theme.get(:background).bg,"#")
+xhor = RuTui::Pixel.new(RuTui::Theme.get(:textcolor),RuTui::Theme.get(:background).bg,"-")
+xver = RuTui::Pixel.new(RuTui::Theme.get(:textcolor),RuTui::Theme.get(:background).bg,"|")
+xcor = RuTui::Pixel.new(RuTui::Theme.get(:textcolor),RuTui::Theme.get(:background).bg,"#")
 
 3.times do |ir|
 	3.times do |ic|
@@ -54,8 +54,8 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 
 	elsif key == 32 # enter
 		if @map[pos[0]][pos[1]] == 0
-			color = Theme.get(:rainbow)[1] if @current == "X"
-			color = Theme.get(:rainbow)[0] if @current == "O"
+			color = RuTui::Theme.get(:rainbow)[1] if @current == "X"
+			color = RuTui::Theme.get(:rainbow)[0] if @current == "O"
 
 			screen.add RuTui::Text.new({ :x => (@size[1]/2)+(pos[0]*4-4)+2, :y => 5+(pos[1]*2)+1, :text => @current, :foreground => color })
 			@map[pos[0]][pos[1]] = @current.dup
@@ -83,4 +83,4 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 	end
 end
 
-print Ansi.clear_color + Ansi.clear
+print RuTui::Ansi.clear_color + RuTui::Ansi.clear
