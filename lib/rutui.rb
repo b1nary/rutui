@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # encoding: UTF-8
 #
 # https://github.com/b1nary/rutui
@@ -18,14 +17,3 @@ require 'rutui/sprites'
 require 'rutui/table'
 require 'rutui/textfield'
 require 'rutui/checkbox'
-
-#if RUBY_PLATFORM =~ /(win32|w32)/
-#	begin
-#		require 'rubygems'
-#		require 'win32console'
-#		include Win32::Console::ANSI
-#		include Term::ANSIColor
-#	rescue
-#		puts "You need the win32console gem for ansi/color support"
-#	end
-#end
