@@ -12,4 +12,5 @@ Gem::Specification.new do |s|
   					"lib/rutui/screenmanager.rb", "lib/rutui/figlet.rb", "lib/rutui/axx.rb", 
   					"lib/rutui/sprites.rb", "lib/rutui/table.rb", "lib/rutui/textfield.rb"]
   s.homepage    = 'http://rubygems.org/gems/rutui'
+  s.required_ruby_version = '>= 2.0.0'
 end

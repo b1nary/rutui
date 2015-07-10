@@ -1,3 +1,5 @@
+require 'io/console'
+
 module RuTui
 	## Ansi Class
 	# This Class generates ansi strings for the
@@ -51,37 +53,19 @@ module RuTui
 	class Utils
 		# Get Windows size
 		def self.winsize
-			# > Ruby 1.9.3
-			#require 'io/console'
-			#IO.console.winsize
-			#rescue LoadError
-			# unix only but each ruby
-			begin
-				return [Integer(`tput lines`), Integer(`tput cols`)]
-			rescue
-				require 'curses'
-				Curses.init_screen
-				out = [Curses.lines, Curses.cols]
-				Curses.close_screen
-				return out
-			end
-			#	[ENV["LINES"], ENV["COLUMNS"]]
-			#else
-			#	[Integer(`tput lines`), Integer(`tput cols`)]
-			#end
+			IO.console.winsize
 		end
 
 		# Get input char without enter
 		# UNIX only!
 		def self.gets
-			# Win32API.new("crtdll", "_getch", [], "L").Call).chr
 			begin
-				system("stty raw -echo")
-				str = STDIN.getc
+				IO.console.raw!
+				char = IO.console.getch
 			ensure
-				system("stty -raw echo")
+				IO.console.cooked!
 			end
-			return str.ord
+			return char.ord
 		end
 
 		# Hides the cursor
