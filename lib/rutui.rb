@@ -19,9 +19,6 @@ require 'rutui/table'
 require 'rutui/textfield'
 require 'rutui/checkbox'
 
-$escape = "\x1b"
-$escape = "\033" if RUBY_PLATFORM =~ /(win32|w32)/
-
 #if RUBY_PLATFORM =~ /(win32|w32)/
 #	begin
 #		require 'rubygems'
