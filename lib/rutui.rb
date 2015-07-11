@@ -5,7 +5,7 @@
 # Author: Roman Pramberger (roman@pramberger.ch)
 # License: MIT
 #
-require 'rutui/util'
+require 'rutui/ansi'
 require 'rutui/pixel'
 require 'rutui/theme'
 require 'rutui/objects'
