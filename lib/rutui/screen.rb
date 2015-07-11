@@ -121,7 +121,7 @@ module RuTui
 
 		# Hides the cursor
 		def self.hide_cursor
-			system("tput civis")
+			print RuTui::Ansi.hide_cursor
 		end
 
 		# Get input char without enter

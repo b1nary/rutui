@@ -43,5 +43,7 @@ module RuTui
 		def self.go_home; "#{@@escape}[H"; end
 		# Goto position
 		def self.position x,y; "#{@@escape}[#{y};#{x}f"; end
+		# Hide cursor
+		def self.hide_cursor; "#{@@escape}?25l"; end
 	end
 end
