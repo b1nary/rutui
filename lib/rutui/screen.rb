@@ -125,7 +125,7 @@ module RuTui
 		end
 
 		# Get input char without enter
-		def self.gets
+		def self.getc
 			begin
 				IO.console.raw!
 				char = IO.console.getch

@@ -32,8 +32,8 @@ screen.add text
 # Lets draw the screen first time
 screen.draw
 
-# Lets wait for ENTER key
-a = gets
+# Lets wait for a key
+a = RuTui::Screen.getc
 
 # and change the text of our text box
 text.set_text "Yay!"
@@ -41,8 +41,8 @@ text.set_text "Yay!"
 # and redraw
 screen.draw
 
-# Lets wait for ENTER key again
-a = gets
+# Lets wait for a key again
+a = RuTui::Screen.getc
 
 # Lets do a little more!
 # Each Object which is dynamic, is moveable
