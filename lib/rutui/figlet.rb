@@ -46,7 +46,7 @@ class Figlet < BaseObject
 		@space = options[:space]
 		@space = 0 if @space.nil?
 		@colors = options[:colors]
-		@colors = [Pixel.new(Theme.get(:textcolor), Theme.get(:background).bg, Theme.get(:background).symbol)] if @colors.nil?
+		@colors = [Pixel.new(Theme.get(:textcolor), -1, Theme.get(:background).symbol)] if @colors.nil?
 
 		create
 	end
@@ -122,22 +122,20 @@ class Figlet < BaseObject
 			config[5].to_i.times do 
 				data.delete_at(0)
 			end
+			data.delete_at(0)
 
 			# Remove empty line if exist
 			data.delete_at(0) if data[0].strip() == ""
 
-			height = config[2].to_i
-			rest = config[1].to_i - height
+			height = config[1].to_i
+			rest = height - config[2].to_i
 
 			@@fonts[name] = {}
 			
 			@@chars.each do |i|
 				out = []
 
-				(data.delete_at(0); rest -= 1) if data.size > 0 and data[0].gsub('$@','').gsub(' ','') == ''
-
-				height.times do |x|
-					break if data.size < 1
+				config[2].to_i.times do |x|
 					xdata = data[0].gsub("$"," ").gsub("@","").gsub("\r","").split("")
 					out << xdata if xdata.size > 0
 					data.delete_at(0)

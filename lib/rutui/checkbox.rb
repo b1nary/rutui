@@ -18,7 +18,7 @@
 #   :symbol_checked - symbol if checked
 #   :symbol_unchecked - symbol if unchecked
 #
-class Textfield < BaseObject
+class Checkbox < BaseObject
 	attr_accessor :focus, :checked
 
 	def initialize options
