@@ -87,7 +87,7 @@ class Screen
 			end
 		end
 
-		out = "\r\n" # Color.go_home
+		out = "" # Color.go_home
 		# and DRAW!
 		@map.each do |line|
 			line.each do |pixel|
@@ -108,7 +108,6 @@ class Screen
 					end
 				end
 			end
-			out += "\r\n"
 		end
 
 		# draw out
