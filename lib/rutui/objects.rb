@@ -261,7 +261,7 @@ class Text < BaseObject
 			@bg = @pixel.bg
 			@fg = @pixel.fg
 		end
-		@bg = Theme.get(:background).bg if @bg.nil?
+		@bg = -1 if @bg.nil?
 		@fg = Theme.get(:textcolor) if @fg.nil?
 		@bold 		= options[:bold] || false
 		@thin 		= options[:thin] || false
