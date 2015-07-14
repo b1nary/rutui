@@ -91,6 +91,7 @@ class Screen
 						pixel.fg = @map[o.y + ri][o.x + ci].fg if !@map[o.y + ri][o.x + ci].nil?
 						pixel.fg = Theme.get(:background).fg if pixel.fg == -1
 					end
+
 					@map[o.y + ri][o.x + ci] = pixel
 				end
 			end
