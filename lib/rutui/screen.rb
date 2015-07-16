@@ -124,17 +124,6 @@ module RuTui
 			print RuTui::Ansi.hide_cursor
 		end
 
-		# Get input char without enter
-		def self.getc
-			begin
-				IO.console.raw!
-				char = IO.console.getch
-			ensure
-				IO.console.cooked!
-			end
-			return char.ord
-		end
-
 		def self.size
 			IO.console.winsize
 		end

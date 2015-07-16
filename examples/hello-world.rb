@@ -33,7 +33,7 @@ screen.add text
 screen.draw
 
 # Lets wait for a key
-a = RuTui::Screen.getc
+a = RuTui::Input.getc
 
 # and change the text of our text box
 text.set_text "Yay!"
@@ -42,7 +42,7 @@ text.set_text "Yay!"
 screen.draw
 
 # Lets wait for a key again
-a = RuTui::Screen.getc
+a = RuTui::Input.getc
 
 # Lets do a little more!
 # Each Object which is dynamic, is moveable

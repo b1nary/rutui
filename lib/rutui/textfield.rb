@@ -77,8 +77,8 @@ module RuTui
 		# write to textfield
 		def write char
 			if @focus
-				@text += char.chr if @allow.include? char.chr
-				@text = @text[0..-2] if char == 127 or char == 8 # its 8 on windows
+				@text += char if @allow.include? char
+				@text = @text[0..-2] if char == :backspace or char == :ctrl_h # its 8 on windows
 			end
 			create
 		end

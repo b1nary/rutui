@@ -73,7 +73,7 @@ module RuTui
 			while true
 				if !@@blocked
 					@@blocked = true
-					key = Screen.getc
+					key = Input.getc
 					yield key
 					if (@timeout.nil? or (@lastaction < Time.now.to_f-@timeout))
 						@lastaction = Time.now.to_f

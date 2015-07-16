@@ -18,13 +18,13 @@ screen.add_static RuTui::Text.new( :x => 1, :y => 7, :text => "Start writing, ch
 
 RuTui::ScreenManager.add :default, screen
 RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
-	break if key.chr == "q" or key == 3 # CTRL+C
+	break if key == "q" or key == :ctrl_c # CTRL+C
 
-	if @focus == 1 and key == 9
+	if @focus == 1 and key == :tab
 		@tf2.take_focus
 		@focus = 0
 		@tf1.set_focus
-	elsif @focus == 0 and key == 9
+	elsif @focus == 0 and key == :tab
 		@tf1.take_focus
 		@focus = 1
 		@tf2.set_focus

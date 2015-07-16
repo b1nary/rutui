@@ -50,10 +50,10 @@ screen.add box0
 RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 
 	#File.open("test", "a"){ |f| f.write("#{key.to_i}\n") }
-	if key.chr == "q" or key == 3 # CTRL+C
+	if key == "q" or key == :ctrl_c # CTRL+C
 		break
 
-	elsif key == 32 # enter
+	elsif key == " " # space bar
 		if @map[pos[0]][pos[1]] == 0
 			color = RuTui::Theme.get(:rainbow)[1] if @current == "X"
 			color = RuTui::Theme.get(:rainbow)[0] if @current == "O"
@@ -73,13 +73,13 @@ RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
 			info.set_text "Current:  #{@current}"
 		end
 
-	elsif key.chr == 'w' # up
+	elsif key == 'w' or key == :up # up
 		(box0.move(0,-2); pos[1] -= 1) if pos[1] > 0
-	elsif key.chr == 's' # down
+	elsif key == 's' or key == :down # down
 		(box0.move(0,2); pos[1] += 1) if pos[1] < 2
-	elsif key.chr == 'd' # right
+	elsif key == 'd' or key == :right # right
 		(box0.move(4,0); pos[0] += 1) if pos[0] < 2
-	elsif key.chr == 'a' # left
+	elsif key == 'a' or key == :left # left
 		(box0.move(-4,0); pos[0] -= 1) if pos[0] > 0
 	end
 end

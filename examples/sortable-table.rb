@@ -26,21 +26,21 @@ screen = RuTui::Screen.new
 	:background => 30
 })
 screen.add @table
-screen.add_static RuTui::Text.new( :x => 1, :y => 8, :text => "Selection: w a s d, Sort by col: x" )
+screen.add_static RuTui::Text.new( :x => 1, :y => 9, :text => "Selection: cursor keys, Sort by col: x, Exit: q or CTRL+C" )
 
 highlight = 0
 highlight2 = 0
 
 RuTui::ScreenManager.add :default, screen
 RuTui::ScreenManager.loop({ :autodraw => true }) do |key|
-	break if key.chr == "q" or key == 3 # CTRL+C
+	break if key == "q" or key == :ctrl_c # CTRL+C
 
-	(highlight += 1; @table.highlight_direction = :horizontal; @table.highlight highlight) if key.chr == "s" and highlight < @table.height-1
-	(highlight -= 1; @table.highlight_direction = :horizontal; @table.highlight highlight) if key.chr == "w" and highlight >= 1
-	(highlight2 += 1; @table.highlight_direction = :vertical;  @table.highlight highlight2) if key.chr == "d" and highlight2 < @table.width-1
-	(highlight2 -= 1; @table.highlight_direction = :vertical;  @table.highlight highlight2) if key.chr == "a" and highlight2 >= 1
+	(highlight += 1; @table.highlight_direction = :horizontal; @table.highlight highlight) if key == :down and highlight < @table.height-1
+	(highlight -= 1; @table.highlight_direction = :horizontal; @table.highlight highlight) if key == :up and highlight >= 1
+	(highlight2 += 1; @table.highlight_direction = :vertical;  @table.highlight highlight2) if key == :right and highlight2 < @table.width-1
+	(highlight2 -= 1; @table.highlight_direction = :vertical;  @table.highlight highlight2) if key == :left and highlight2 >= 1
 
-	if key.chr == "x"
+	if key == "x"
 		@table.sort highlight2
 	end
 
