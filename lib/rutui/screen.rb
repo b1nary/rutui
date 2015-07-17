@@ -49,20 +49,20 @@ module RuTui
 		def add_static object
 			@statics << object if !@statics.include? object
 			object.each do |ri,ci,pixel|
-			if !pixel.nil? and object.y+ri >= 0 and object.y+ci >= 0
-				if @smap[object.y+ri][object.x+ci].nil?
-					@smap[object.y+ri][object.x+ci] = pixel
-				else
-					@smap[object.y+ri][object.x+ci] = @smap[object.y+ri][object.x+ci].dup
-					@smap[object.y+ri][object.x+ci].fg = pixel.fg if pixel.fg != -1
-					@smap[object.y+ri][object.x+ci].bg = pixel.bg if pixel.bg != -1 
-					@smap[object.y+ri][object.x+ci].symbol = pixel.symbol
+				if !pixel.nil? and object.y+ri >= 0 and object.y+ci >= 0
+					if @smap[object.y+ri][object.x+ci].nil?
+						@smap[object.y+ri][object.x+ci] = pixel
+					else
+						@smap[object.y+ri][object.x+ci] = @smap[object.y+ri][object.x+ci].dup
+						@smap[object.y+ri][object.x+ci].fg = pixel.fg if pixel.fg != -1
+						@smap[object.y+ri][object.x+ci].bg = pixel.bg if pixel.bg != -1
+						@smap[object.y+ri][object.x+ci].symbol = pixel.symbol
+					end
 				end
 			end
-			end
 		end
-
 		##
+
 		# add dynamic object
 		def add object
 			@objects << object
@@ -100,7 +100,7 @@ module RuTui
 				end
 			end
 
-		out = "" # Color.go_home
+			out = "" # Color.go_home
 			# and DRAW!
 			@map.each do |line|
 				line.each do |pixel|
