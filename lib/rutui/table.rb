@@ -22,7 +22,7 @@ module RuTui
 			@bg = options[:background]
 			@hover = options[:hover]
 			@fg = options[:foreground]
-			@bg = Theme.get(:background).bg if @bg.nil?
+		@bg = -1 if @bg.nil?
 			@fg = Theme.get(:textcolor) if @fg.nil?
 			@bg2 = @bg if @bg2.nil?
 			@ascii = options[:ascii]
@@ -109,16 +109,17 @@ module RuTui
 				obj << ascii_table_line if @ascii
 				_obj = []
 				_obj << Pixel.new(@pixel.fg,@bg,"|") if @ascii
+			_obj << nil
 				@cols.each_with_index do |col, index|
 					fg = @pixel.fg
 					fg = @cols[index][:title_color] if !@cols[index].nil? and !@cols[index][:title_color].nil?
 					chars = "".to_s.split("")
-					chars = " #{ col[:title] }".to_s.split("") if !col.nil? and !col[:title].nil?
+				chars = "#{ col[:title] }".to_s.split("") if !col.nil? and !col[:title].nil?
 					chars.each_with_index do |e, char_count|
 						_obj << Pixel.new(fg,@bg,e)
 					end
 					(@meta[:max_widths][index]-chars.size+2).times do |i|
-						_obj << Pixel.new(@pixel.fg,@bg," ")
+					_obj << nil
 					end
 					_obj << Pixel.new(@pixel.fg,@bg,"|") if @ascii
 				end
@@ -144,7 +145,7 @@ module RuTui
 
 
 					chars = col.to_s.split("")
-					_obj << Pixel.new(@pixel.fg,bg," ")
+				_obj << nil
 					max_chars = nil
 					max_chars = @cols[index][:max_length]+1 if !@cols[index].nil? and !@cols[index][:max_length].nil?
 					max_chars = @cols[index][:length]+1 if !@cols[index].nil? and !@cols[index][:length].nil?
@@ -153,7 +154,7 @@ module RuTui
 						_obj << Pixel.new(fg,bg,e)
 					end
 					(@meta[:max_widths][index]-chars.size+1).times do |i|
-						_obj << Pixel.new(@pixel.fg,bg," ")
+					_obj << nil
 					end
 
 					bg = @bg if @highlight_direction == :vertical
