@@ -51,6 +51,15 @@ module RuTui
 			object.each do |ri,ci,pixel|
 				if !pixel.nil? and object.y+ri >= 0 and object.y+ci >= 0
 					if @smap[object.y+ri][object.x+ci].nil?
+						if pixel.bg == -1
+							pixel.bg = @map[object.y + ri][object.x + ci].bg if !@map[object.y + ri][object.x + ci].nil?
+							pixel.bg = Theme.get(:background).bg if pixel.bg == -1
+						end
+						if pixel.fg == -1
+							pixel.fg = @map[object.y + ri][object.x + ci].fg if !@map[object.y + ri][object.x + ci].nil?
+							pixel.fg = Theme.get(:background).fg if pixel.fg == -1
+						end
+
 						@smap[object.y+ri][object.x+ci] = pixel
 					else
 						@smap[object.y+ri][object.x+ci] = @smap[object.y+ri][object.x+ci].dup
@@ -104,15 +113,14 @@ module RuTui
 			# and DRAW!
 			@map.each do |line|
 				line.each do |pixel|
-					if pixel != lastpixel
+					if lastpixel != pixel
 						out += RuTui::Ansi.clear_color if lastpixel != 0
 						if pixel.nil?
-							lastpixel = pixel
 							out += "#{RuTui::Ansi.bg(@default.bg)}#{RuTui::Ansi.fg(@default.fg)}#{@default.symbol}"
 						else
-							lastpixel = pixel
 							out += "#{RuTui::Ansi.bg(pixel.bg)}#{RuTui::Ansi.fg(pixel.fg)}#{pixel.symbol}"
 						end
+						lastpixel = pixel
 					else
 						if pixel.nil?
 							out += @default.symbol

@@ -29,15 +29,24 @@ sudo gem install rutui
 
 If you are on windows please take a look at [Ansicon](https://github.com/adoxa/ansicon).
 
+## Todo
+
+* Test on windows/mac
+* "Radio" object_
+* "Selectbox" object_
+
 ## Changelog
 
-* 0.6 (indev)
+* 0.7
+  * Merge [pull request](https://github.com/b1nary/rutui/pull/1) from @jaydg
+* 0.6
+  * Fixing transparency on multiple objects
+  * Removing a flicker from slower devices
+  * Fixing figlet problems
   * Added text style options (bold/italic/...)
   * Added multiline text support
   * Add focus pixel to textfield
-  * _Added "Checkbox" object_
-  * _Added "Radio" object_
-  * _Added "Selectbox" object_
+  * Added "Checkbox" object
 * 0.5
   * Fixed refactoring bugs
   * Added "Dot" object
