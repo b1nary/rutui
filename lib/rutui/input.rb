@@ -29,7 +29,6 @@ module RuTui
 
       # Add the common control key definitions
       @@keys.merge!(@@control_keys)
-      #require "pp" ; pp @@keys
     end
 
     # Get input char without enter
