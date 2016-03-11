@@ -1,0 +1,944 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RuTui::Figlet
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RuTui/Figlet.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RuTui.html" title="RuTui (module)">RuTui</a></span></span>
+     &raquo; 
+    <span class="title">Figlet</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RuTui::Figlet
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></li>
+          
+            <li class="next">RuTui::Figlet</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rutui/objects/figlet.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Figlet Class parse Figlet Font files</p>
+
+<p>Attributes (All accessable):</p>
+
+<pre class="code ruby"><code class="ruby">:x		MUST
+:y		MUST
+:text		Your text
+:font		Use a loaded font file
+:rainbow	true|any
+:colors	Array of example pixels used for colors</code></pre>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Figlet</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span> <span class='symbol'>:test</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path/to/font.flf</span><span class='tstring_end'>&quot;</span></span>
+<span class='const'>Figlet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Meh</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:font</span> <span class='op'>=&gt;</span> <span class='symbol'>:test</span><span class='comma'>,</span> <span class='symbol'>:rainbow</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Config content (just to remember what the figlet slug means)</p>
+
+<pre class="code ruby"><code class="ruby">0   - name
+1   - height of a character
+2   - height of a character, not including descenders
+3   - max line length (excluding comment lines) + a fudge factor
+4   - default smushmode for this font (like &quot;-m 0&quot; on command line)
+5   - number of comment lines
+6   - rtol</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="chars-classvariable" class="">@@chars =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Figlet font: &#39;!“ #$%&amp;&#39;()*+,-./<a
+href="\">0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ</a>^<a
+href="|">_`abcdefghijklmnopqrstuvwxyz</a>~ÄÖÜäöüß&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>!!&quot;#$%&amp;\&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz[|]~ÄÖÜäöüß</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="rainbow-classvariable" class="">@@rainbow =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
+        <dt id="fonts-classvariable" class="">@@fonts =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#colors-instance_method" title="#colors (instance method)">- (Object) <strong>colors</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute colors.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#font-instance_method" title="#font (instance method)">- (Object) <strong>font</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute font.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rainbow-instance_method" title="#rainbow (instance method)">- (Object) <strong>rainbow</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute rainbow.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#text-instance_method" title="#text (instance method)">- (Object) <strong>text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute text.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#height-instance_method" title="RuTui::BaseObject#height (method)">#height</a></span>, <span class='object_link'><a href="BaseObject.html#object-instance_method" title="RuTui::BaseObject#object (method)">#object</a></span>, <span class='object_link'><a href="BaseObject.html#theme-instance_method" title="RuTui::BaseObject#theme (method)">#theme</a></span>, <span class='object_link'><a href="BaseObject.html#width-instance_method" title="RuTui::BaseObject#width (method)">#width</a></span>, <span class='object_link'><a href="BaseObject.html#x-instance_method" title="RuTui::BaseObject#x (method)">#x</a></span>, <span class='object_link'><a href="BaseObject.html#y-instance_method" title="RuTui::BaseObject#y (method)">#y</a></span></p>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add-class_method" title="add (class method)">+ (Object) <strong>add</strong>(name, file) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Static methods to add/load new Fonts.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create Figlet text object Recall it any time when attributes have changed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Figlet) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize (see above).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#calculate_size-instance_method" title="RuTui::BaseObject#calculate_size (method)">#calculate_size</a></span>, <span class='object_link'><a href="BaseObject.html#each-instance_method" title="RuTui::BaseObject#each (method)">#each</a></span>, <span class='object_link'><a href="BaseObject.html#get_pixel-instance_method" title="RuTui::BaseObject#get_pixel (method)">#get_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#move-instance_method" title="RuTui::BaseObject#move (method)">#move</a></span>, <span class='object_link'><a href="BaseObject.html#recreate-instance_method" title="RuTui::BaseObject#recreate (method)">#recreate</a></span>, <span class='object_link'><a href="BaseObject.html#set_pixel-instance_method" title="RuTui::BaseObject#set_pixel (method)">#set_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#set_position-instance_method" title="RuTui::BaseObject#set_position (method)">#set_position</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RuTui::Figlet (class)">Figlet</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize (see above)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_options'>options</span>
+	<span class='ivar'>@x</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span>
+	<span class='ivar'>@y</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span>
+
+	<span class='cvar'>@@rainbow</span> <span class='op'>=</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:rainbow</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='cvar'>@@rainbow</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@x</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@y</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@font</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:font</span><span class='rbracket'>]</span>
+	<span class='ivar'>@text</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:text</span><span class='rbracket'>]</span>
+	<span class='ivar'>@rainbow</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:rainbow</span><span class='rbracket'>]</span>
+	<span class='ivar'>@space</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:space</span><span class='rbracket'>]</span>
+	<span class='ivar'>@space</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='ivar'>@space</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+	<span class='ivar'>@colors</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:colors</span><span class='rbracket'>]</span>
+	<span class='ivar'>@colors</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:textcolor</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:background</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@colors</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="colors=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="colors-instance_method">
+  
+    - (<tt>Object</tt>) <strong>colors</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute colors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_colors'>colors</span>
+  <span class='ivar'>@colors</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="font=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="font-instance_method">
+  
+    - (<tt>Object</tt>) <strong>font</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute font</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_font'>font</span>
+  <span class='ivar'>@font</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rainbow=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rainbow-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rainbow</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute rainbow</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rainbow'>rainbow</span>
+  <span class='ivar'>@rainbow</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="text=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>text</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_text'>text</span>
+  <span class='ivar'>@text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add-class_method">
+  
+    + (<tt>Object</tt>) <strong>add</strong>(name, file) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Static methods to add/load new Fonts</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span>
+	<span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
+
+		<span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+		<span class='comment'># Remove Comments (Size is in info line)
+</span>		<span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+			<span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+
+		<span class='comment'># Remove empty line if exist
+</span>		<span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+		<span class='id identifier rubyid_height'>height</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+		<span class='id identifier rubyid_rest'>rest</span> <span class='op'>=</span> <span class='id identifier rubyid_height'>height</span> <span class='op'>-</span> <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+
+		<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+		<span class='cvar'>@@chars</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+			<span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+			<span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+				<span class='id identifier rubyid_xdata'>xdata</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>$</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+				<span class='id identifier rubyid_out'>out</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_xdata'>xdata</span> <span class='kw'>if</span> <span class='id identifier rubyid_xdata'>xdata</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+				<span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+			<span class='kw'>end</span>
+
+			<span class='id identifier rubyid_rest'>rest</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+				<span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_delete_at'>delete_at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+			<span class='kw'>end</span>
+
+			<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_out'>out</span>
+		<span class='kw'>end</span>
+		<span class='kw'>return</span> <span class='kw'>true</span>
+	<span class='kw'>else</span>
+		<span class='kw'>return</span> <span class='kw'>false</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create Figlet text object Recall it any time when attributes have changed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/figlet.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+	<span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='ivar'>@font</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+		<span class='id identifier rubyid_obj'>obj</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='int'>0</span>
+
+	<span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='int'>0</span>
+	<span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_each_byte'>each_byte</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+		<span class='kw'>if</span> <span class='cvar'>@@chars</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span>
+			<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='ivar'>@font</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_fr'>fr</span><span class='comma'>,</span><span class='id identifier rubyid_ri'>ri</span><span class='op'>|</span>
+				<span class='id identifier rubyid_fr'>fr</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_fc'>fc</span><span class='op'>|</span>
+					<span class='kw'>if</span> <span class='ivar'>@rainbow</span>
+						<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='cvar'>@@rainbow</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span><span class='id identifier rubyid_fc'>fc</span><span class='rparen'>)</span>
+					<span class='kw'>else</span>
+						<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span><span class='id identifier rubyid_fc'>fc</span><span class='rparen'>)</span>
+					<span class='kw'>end</span>
+
+					<span class='kw'>if</span> <span class='ivar'>@rainbow</span> <span class='op'>!=</span> <span class='kw'>true</span>
+						<span class='id identifier rubyid_current'>current</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@colors</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+						<span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_current'>current</span> <span class='op'>&gt;</span> <span class='ivar'>@colors</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+					<span class='kw'>end</span>
+				<span class='kw'>end</span>
+			<span class='kw'>end</span>
+
+			<span class='kw'>if</span> <span class='ivar'>@rainbow</span>
+				<span class='id identifier rubyid_current'>current</span> <span class='op'>+=</span> <span class='int'>1</span>
+				<span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_current'>current</span> <span class='op'>&gt;=</span> <span class='cvar'>@@rainbow</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+			<span class='kw'>end</span>
+
+			<span class='kw'>if</span> <span class='id identifier rubyid_count'>count</span> <span class='op'>&lt;</span> <span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>-</span><span class='int'>1</span>
+				<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='ivar'>@font</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ri'>ri</span><span class='op'>|</span>
+					<span class='ivar'>@space</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+						<span class='kw'>if</span> <span class='ivar'>@rainbow</span>
+							<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='cvar'>@@rainbow</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span><span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:background</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+						<span class='kw'>else</span>
+							<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span><span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:background</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+						<span class='kw'>end</span>
+					<span class='kw'>end</span>
+				<span class='kw'>end</span>
+			<span class='kw'>end</span>
+		<span class='comment'># SPace
+</span>		<span class='kw'>else</span>
+			<span class='cvar'>@@fonts</span><span class='lbracket'>[</span><span class='ivar'>@font</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ri'>ri</span><span class='op'>|</span>
+				<span class='int'>3</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+					<span class='kw'>if</span> <span class='ivar'>@rainbow</span>
+						<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='cvar'>@@rainbow</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:background</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+					<span class='kw'>else</span>
+						<span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='id identifier rubyid_ri'>ri</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span><span class='ivar'>@colors</span><span class='lbracket'>[</span><span class='id identifier rubyid_current'>current</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:background</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+					<span class='kw'>end</span>
+				<span class='kw'>end</span>
+			<span class='kw'>end</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_count'>count</span> <span class='op'>+=</span> <span class='int'>1</span>
+	<span class='kw'>end</span>
+	<span class='ivar'>@obj</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 13 12:30:19 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

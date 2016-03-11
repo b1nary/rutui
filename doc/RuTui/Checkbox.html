@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RuTui::Checkbox
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RuTui/Checkbox.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RuTui.html" title="RuTui (module)">RuTui</a></span></span>
+     &raquo; 
+    <span class="title">Checkbox</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RuTui::Checkbox
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="FormObject.html" title="RuTui::FormObject (class)">FormObject</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="FormObject.html" title="RuTui::FormObject (class)">FormObject</a></span></li>
+          
+            <li class="next">RuTui::Checkbox</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Service/Focusable.html" title="RuTui::Service::Focusable (module)">Service::Focusable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rutui/forms/checkbox.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Checkbox Object Class Creates an Checkbox element</p>
+
+<p>Methods: 	:set_focus 		Set focus to this textfield</p>
+
+<pre class="code ruby"><code class="ruby">:take_focus     Unset focus
+:toggle         Toggle checkbox
+:check          Check
+:uncheck        Uncheck</code></pre>
+
+<p>Attributes (all accessible): 	:x				MUST 	:y				MUST :pixel			- pixel from
+which colors get inherted</p>
+
+<pre class="code ruby"><code class="ruby">:focus_pixel    - pixel used when on focus (defaults to pixel)</code></pre>
+
+<p>:focus 			- has focus?</p>
+
+<pre class="code ruby"><code class="ruby">:checked		- is checked?
+:symbol_checked - symbol if checked
+:symbol_unchecked - symbol if unchecked</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#checked-instance_method" title="#checked (instance method)">- (Object) <strong>checked</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute checked.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#focus-instance_method" title="#focus (instance method)">- (Object) <strong>focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute focus.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#height-instance_method" title="RuTui::BaseObject#height (method)">#height</a></span>, <span class='object_link'><a href="BaseObject.html#object-instance_method" title="RuTui::BaseObject#object (method)">#object</a></span>, <span class='object_link'><a href="BaseObject.html#theme-instance_method" title="RuTui::BaseObject#theme (method)">#theme</a></span>, <span class='object_link'><a href="BaseObject.html#width-instance_method" title="RuTui::BaseObject#width (method)">#width</a></span>, <span class='object_link'><a href="BaseObject.html#x-instance_method" title="RuTui::BaseObject#x (method)">#x</a></span>, <span class='object_link'><a href="BaseObject.html#y-instance_method" title="RuTui::BaseObject#y (method)">#y</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check-instance_method" title="#check (instance method)">- (Object) <strong>check</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Checkbox) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Checkbox.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_focus-instance_method" title="#set_focus (instance method)">- (Object) <strong>set_focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#take_focus-instance_method" title="#take_focus (instance method)">- (Object) <strong>take_focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#toggle-instance_method" title="#toggle (instance method)">- (Object) <strong>toggle</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#uncheck-instance_method" title="#uncheck (instance method)">- (Object) <strong>uncheck</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#calculate_size-instance_method" title="RuTui::BaseObject#calculate_size (method)">#calculate_size</a></span>, <span class='object_link'><a href="BaseObject.html#each-instance_method" title="RuTui::BaseObject#each (method)">#each</a></span>, <span class='object_link'><a href="BaseObject.html#get_pixel-instance_method" title="RuTui::BaseObject#get_pixel (method)">#get_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#move-instance_method" title="RuTui::BaseObject#move (method)">#move</a></span>, <span class='object_link'><a href="BaseObject.html#recreate-instance_method" title="RuTui::BaseObject#recreate (method)">#recreate</a></span>, <span class='object_link'><a href="BaseObject.html#set_pixel-instance_method" title="RuTui::BaseObject#set_pixel (method)">#set_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#set_position-instance_method" title="RuTui::BaseObject#set_position (method)">#set_position</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RuTui::Checkbox (class)">Checkbox</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Checkbox</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_options'>options</span>
+	<span class='ivar'>@pixel</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:pixel</span><span class='rbracket'>]</span>
+	<span class='ivar'>@pixel</span> <span class='op'>=</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:border</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@focus_pixel</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:focus_pixel</span><span class='rbracket'>]</span>
+	<span class='ivar'>@focus_pixel</span> <span class='op'>=</span> <span class='ivar'>@pixel</span> <span class='kw'>if</span> <span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@symbol_checked</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:symbol_checked</span><span class='rbracket'>]</span>
+	<span class='ivar'>@symbol_checked</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>☑</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@symbol_checked</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@symbol_unchecked</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:symbol_unchecked</span><span class='rbracket'>]</span>
+	<span class='ivar'>@symbol_unchecked</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>☐</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='ivar'>@symbol_unchecked</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:focus</span><span class='rbracket'>]</span>
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@focus</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@checked</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:checked</span><span class='rbracket'>]</span>
+	<span class='ivar'>@checked</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@checked</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="checked=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="checked-instance_method">
+  
+    - (<tt>Object</tt>) <strong>checked</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute checked</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_checked'>checked</span>
+  <span class='ivar'>@checked</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="focus=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>focus</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute focus</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_focus'>focus</span>
+  <span class='ivar'>@focus</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="check-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check'>check</span>
+	<span class='ivar'>@checked</span> <span class='op'>=</span> <span class='kw'>true</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_focus</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_focus'>set_focus</span>
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>true</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="take_focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>take_focus</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_take_focus'>take_focus</span>
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="toggle-instance_method">
+  
+    - (<tt>Object</tt>) <strong>toggle</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_toggle'>toggle</span>
+	<span class='kw'>if</span> <span class='ivar'>@checked</span>
+		<span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_uncheck'>uncheck</span>
+	<span class='kw'>else</span>
+		<span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check'>check</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="uncheck-instance_method">
+  
+    - (<tt>Object</tt>) <strong>uncheck</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/checkbox.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_uncheck'>uncheck</span>
+	<span class='ivar'>@checked</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 13 12:30:19 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

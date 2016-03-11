@@ -19,7 +19,8 @@ module RuTui
 	#   :symbol_checked - symbol if checked
 	#   :symbol_unchecked - symbol if unchecked
 	#
-	class Checkbox < BaseObject
+	class Checkbox < FormObject
+		include RuTui::Service::Focusable
 		attr_accessor :focus, :checked
 
 		def initialize options
@@ -34,11 +35,6 @@ module RuTui
 
 			@symbol_unchecked = options[:symbol_unchecked]
 			@symbol_unchecked = "☐" if @symbol_unchecked.nil?
-
-			@x = options[:x]
-			@x = 1 if @x.nil?
-			@y = options[:y]
-			@y = 1 if @y.nil?
 
 			@focus = options[:focus]
 			@focus = false if @focus.nil?

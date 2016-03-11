@@ -1,0 +1,1063 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RuTui::Textfield
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RuTui/Textfield.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RuTui.html" title="RuTui (module)">RuTui</a></span></span>
+     &raquo; 
+    <span class="title">Textfield</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RuTui::Textfield
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="FormObject.html" title="RuTui::FormObject (class)">FormObject</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="FormObject.html" title="RuTui::FormObject (class)">FormObject</a></span></li>
+          
+            <li class="next">RuTui::Textfield</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rutui/forms/textfield.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Textfield Object Class Creates an Textfield element</p>
+
+<p>Methods: 	:set_focus 		Set focus to this textfield</p>
+
+<pre class="code ruby"><code class="ruby">:take_focus     Unset focus</code></pre>
+
+<p>:write CHAR 	Write char to textfield (if has focus) 	:set_text TEXT 	Set
+text 	:get_text 		Returns text 	:count 			Text count</p>
+
+<p>Attributes (all accessible): 	:x				MUST 	:y				MUST :pixel			- pixel from
+which colors get inherted</p>
+
+<pre class="code ruby"><code class="ruby">:focus_pixel    - pixel used when on focus (defaults to pixel)</code></pre>
+
+<p>:allow			- allowed chars 	:password		- boolean: is password field? 	:focus
+			- has focus?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow-instance_method" title="#allow (instance method)">- (Object) <strong>allow</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute allow.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#focus-instance_method" title="#focus (instance method)">- (Object) <strong>focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute focus.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password-instance_method" title="#password (instance method)">- (Object) <strong>password</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute password.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#height-instance_method" title="RuTui::BaseObject#height (method)">#height</a></span>, <span class='object_link'><a href="BaseObject.html#object-instance_method" title="RuTui::BaseObject#object (method)">#object</a></span>, <span class='object_link'><a href="BaseObject.html#theme-instance_method" title="RuTui::BaseObject#theme (method)">#theme</a></span>, <span class='object_link'><a href="BaseObject.html#width-instance_method" title="RuTui::BaseObject#width (method)">#width</a></span>, <span class='object_link'><a href="BaseObject.html#x-instance_method" title="RuTui::BaseObject#x (method)">#x</a></span>, <span class='object_link'><a href="BaseObject.html#y-instance_method" title="RuTui::BaseObject#y (method)">#y</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#count-instance_method" title="#count (instance method)">- (Object) <strong>count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>count.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>create or recreate the table object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_text-instance_method" title="#get_text (instance method)">- (Object) <strong>get_text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>get text.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Textfield) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Textfield.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_focus-instance_method" title="#set_focus (instance method)">- (Object) <strong>set_focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>set focus.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_text-instance_method" title="#set_text (instance method)">- (Object) <strong>set_text</strong>(text) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>set text.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#take_focus-instance_method" title="#take_focus (instance method)">- (Object) <strong>take_focus</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>take focus.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write-instance_method" title="#write (instance method)">- (Object) <strong>write</strong>(char) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>write to textfield.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#calculate_size-instance_method" title="RuTui::BaseObject#calculate_size (method)">#calculate_size</a></span>, <span class='object_link'><a href="BaseObject.html#each-instance_method" title="RuTui::BaseObject#each (method)">#each</a></span>, <span class='object_link'><a href="BaseObject.html#get_pixel-instance_method" title="RuTui::BaseObject#get_pixel (method)">#get_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#move-instance_method" title="RuTui::BaseObject#move (method)">#move</a></span>, <span class='object_link'><a href="BaseObject.html#recreate-instance_method" title="RuTui::BaseObject#recreate (method)">#recreate</a></span>, <span class='object_link'><a href="BaseObject.html#set_pixel-instance_method" title="RuTui::BaseObject#set_pixel (method)">#set_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#set_position-instance_method" title="RuTui::BaseObject#set_position (method)">#set_position</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RuTui::Textfield (class)">Textfield</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Textfield</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_options'>options</span>
+	<span class='ivar'>@width</span> <span class='op'>=</span> <span class='int'>14</span>
+	<span class='ivar'>@width</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@pixel</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:pixel</span><span class='rbracket'>]</span>
+	<span class='ivar'>@pixel</span> <span class='op'>=</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:border</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@focus_pixel</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:focus_pixel</span><span class='rbracket'>]</span>
+	<span class='ivar'>@focus_pixel</span> <span class='op'>=</span> <span class='ivar'>@pixel</span> <span class='kw'>if</span> <span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@x</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span>
+	<span class='ivar'>@x</span> <span class='op'>=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@x</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+	<span class='ivar'>@y</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span>
+	<span class='ivar'>@y</span> <span class='op'>=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@y</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@allow</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='int'>9</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>a</span><span class='tstring_end'>&#39;</span></span><span class='op'>..</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>z</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>A</span><span class='tstring_end'>&#39;</span></span><span class='op'>..</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Z</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>|</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>!</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+	<span class='ivar'>@allow</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:allow</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:allow</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+	<span class='ivar'>@height</span> <span class='op'>=</span> <span class='int'>1</span>
+
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='ivar'>@password</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='ivar'>@password</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:password</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
+
+	<span class='ivar'>@text</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="allow=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="allow-instance_method">
+  
+    - (<tt>Object</tt>) <strong>allow</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute allow</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allow'>allow</span>
+  <span class='ivar'>@allow</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="focus=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>focus</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute focus</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_focus'>focus</span>
+  <span class='ivar'>@focus</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="password=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="password-instance_method">
+  
+    - (<tt>Object</tt>) <strong>password</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute password</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_password'>password</span>
+  <span class='ivar'>@password</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="count-instance_method">
+  
+    - (<tt>Object</tt>) <strong>count</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>count</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_count'>count</span>
+	<span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>create or recreate the table object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+	<span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='id identifier rubyid__obj'>_obj</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='kw'>if</span> <span class='lparen'>(</span><span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>&lt;</span> <span class='ivar'>@width</span>
+		<span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='ivar'>@text</span>
+	<span class='kw'>else</span>
+		<span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='lparen'>(</span><span class='ivar'>@width</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='id identifier rubyid_password'>password</span>
+		<span class='id identifier rubyid__text'>_text</span> <span class='op'>=</span> <span class='id identifier rubyid_text'>text</span>
+		<span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+		<span class='id identifier rubyid__text'>_text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+			<span class='id identifier rubyid_text'>text</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
+
+	<span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+		<span class='kw'>if</span> <span class='ivar'>@focus</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@focus_pixel</span> <span class='op'>!=</span> <span class='ivar'>@pixel</span>
+			<span class='id identifier rubyid__obj'>_obj</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span> <span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+		<span class='kw'>else</span>
+			<span class='id identifier rubyid__obj'>_obj</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
+
+	<span class='kw'>if</span> <span class='ivar'>@focus</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@focus_pixel</span> <span class='op'>!=</span> <span class='ivar'>@pixel</span>
+		<span class='id identifier rubyid__obj'>_obj</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span> <span class='ivar'>@focus_pixel</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+	<span class='kw'>else</span>
+		<span class='id identifier rubyid__obj'>_obj</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span><span class='comma'>,</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_obj'>obj</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid__obj'>_obj</span>
+	<span class='ivar'>@obj</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_text</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>get text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_text'>get_text</span>
+	<span class='ivar'>@text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_focus</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>set focus</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_focus'>set_focus</span>
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>true</span>
+	<span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_position'>position</span> <span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_text</strong>(text) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>set text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_text'>set_text</span> <span class='id identifier rubyid_text'>text</span>
+	<span class='ivar'>@text</span> <span class='op'>=</span> <span class='id identifier rubyid_text'>text</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="take_focus-instance_method">
+  
+    - (<tt>Object</tt>) <strong>take_focus</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>take focus</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_take_focus'>take_focus</span>
+	<span class='ivar'>@focus</span> <span class='op'>=</span> <span class='kw'>false</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write</strong>(char) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>write to textfield</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/forms/textfield.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span> <span class='id identifier rubyid_char'>char</span>
+	<span class='kw'>if</span> <span class='ivar'>@focus</span>
+		<span class='ivar'>@text</span> <span class='op'>+=</span> <span class='id identifier rubyid_char'>char</span> <span class='kw'>if</span> <span class='ivar'>@allow</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_char'>char</span>
+		<span class='ivar'>@text</span> <span class='op'>=</span> <span class='ivar'>@text</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_char'>char</span> <span class='op'>==</span> <span class='symbol'>:backspace</span> <span class='kw'>or</span> <span class='id identifier rubyid_char'>char</span> <span class='op'>==</span> <span class='symbol'>:ctrl_h</span> <span class='comment'># its 8 on windows
+</span>	<span class='kw'>end</span>
+	<span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 13 12:30:19 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    rutui (0.8)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.8.4)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.11)
+  minitest (~> 5.0)
+  rake (~> 10.0)
+  rutui!
+
+BUNDLED WITH
+   1.11.2

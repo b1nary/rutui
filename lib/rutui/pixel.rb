@@ -1,24 +1,79 @@
 module RuTui
-	## Pixel Class
-	# Each pixel consinsts of foreground, background and
-	# a symbol. What it is, is self explainaring
+	# A Pixel consists of foreground, background and a symbol.
+	# Pixels are a central element of RuTui.
 	#
 	# Colors can be numbers between 0 and 255
-	# (dunno how windows or OSX handles colors over 16)
 	#
-	# The Symbol may eats every in Ruby working Ascii Symbol
+	# Note: Windows does need a extra software like ANSICON to
+	# display more than a few (16) colors.
 	#
 	class Pixel
-		attr_accessor :fg, :bg, :symbol
+		attr_accessor :foreground, :background, :symbol
+		attr_accessor :bold, :thin, :italic, :underline, :blink
 
-		def initialize foreground = 15, background = nil, symbol = " "
-				@fg = foreground
-				@bg = background
-				@symbol = symbol
+		# create new pixel
+		#
+		# @param foreground [Integer, nil] foreground color
+		# @param background [Integer, nil] background color
+		# @param symbol [Text, nil] single char
+		# @param [Hash] options additional pixel options
+		# @option options [true,false,nil] :bold bold text
+		# @option options [true,false,nil] :thin thin text
+		# @option options [true,false,nil] :italic italic text
+		# @option options [true,false,nil] :underline underline text
+		# @option options [true,false,nil] :blink blink text
+		def initialize foreground = 0, background = nil, symbol = " ", options = {}
+			@foreground = foreground
+			@background = background
+			if symbol.nil?
+				@symbol = nil
+			else
+				@symbol = symbol.to_s[0,1]
+			end
+
+			@bold = !!options[:bold]
+			@thin = !!options[:thin]
+			@italic = !!options[:italic]
+			@underline = !!options[:underline]
+			@blink = !!options[:blink]
 		end
 
-		def self.random sym = "#"
-			Pixel.new(rand(255),rand(255),sym)
+		# see {#background}
+		def bg; @background end
+		# see {#foreground}
+		def fg; @foreground end
+
+		# get a random pixel with optional symbol
+		#
+		# @param symbol [Text] single char
+		# @return [RuTui::Pixel] random pixel
+		def self.random symbol = " "
+			new(rand(255),rand(255),symbol)
+		end
+
+		# get pixel hash
+		#
+		# @return [Hash] pixel as hash
+		# @example
+		#   { background: 12, foreground: 14, symbol: "~" }
+		def to_h
+			{ background: @background,
+			 	foreground: @foreground,
+				symbol: @symbol }.merge(options)
+		end
+
+		private
+		# optional pixel options (bold, italic, thin, underline, blink)
+		#
+		# @return [Hash] pixel options hash
+		def options
+			options = {}
+			options[:bold] = true if @bold
+			options[:thin] = true if @thin
+			options[:italic] = true if @italic
+			options[:underline] = true if @underline
+			options[:blink] = true if @blink
+			options
 		end
 	end
 end

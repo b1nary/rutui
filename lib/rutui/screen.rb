@@ -1,9 +1,7 @@
-# This File contains the Screen Class
-
 require 'io/console'
 
 module RuTui
-	## Screen Class
+	## Screen
 	# The Screen is the root element of your app.
 	# Its basicly a map containing you screens pixels
 	#
@@ -51,20 +49,20 @@ module RuTui
 			object.each do |ri,ci,pixel|
 				if !pixel.nil? and object.y+ri >= 0 and object.y+ci >= 0
 					if @smap[object.y+ri][object.x+ci].nil?
-						if pixel.bg == -1
-							pixel.bg = @map[object.y + ri][object.x + ci].bg if !@map[object.y + ri][object.x + ci].nil?
-							pixel.bg = Theme.get(:background).bg if pixel.bg == -1
+						if pixel.background == -1
+							pixel.background = @map[object.y + ri][object.x + ci].background if !@map[object.y + ri][object.x + ci].nil?
+							pixel.background = Theme.get(:background).background if pixel.background == -1
 						end
-						if pixel.fg == -1
-							pixel.fg = @map[object.y + ri][object.x + ci].fg if !@map[object.y + ri][object.x + ci].nil?
-							pixel.fg = Theme.get(:background).fg if pixel.fg == -1
+						if pixel.foreground == -1
+							pixel.foreground = @map[object.y + ri][object.x + ci].foreground if !@map[object.y + ri][object.x + ci].nil?
+							pixel.foreground = Theme.get(:background).foreground if pixel.foreground == -1
 						end
 
 						@smap[object.y+ri][object.x+ci] = pixel
 					else
 						@smap[object.y+ri][object.x+ci] = @smap[object.y+ri][object.x+ci].dup
-						@smap[object.y+ri][object.x+ci].fg = pixel.fg if pixel.fg != -1
-						@smap[object.y+ri][object.x+ci].bg = pixel.bg if pixel.bg != -1
+						@smap[object.y+ri][object.x+ci].foreground = pixel.foreground if pixel.foreground != -1
+						@smap[object.y+ri][object.x+ci].background = pixel.background if pixel.background != -1
 						@smap[object.y+ri][object.x+ci].symbol = pixel.symbol
 					end
 				end

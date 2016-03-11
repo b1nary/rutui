@@ -19,7 +19,7 @@ module RuTui
 	# 	:password		- boolean: is password field?
 	# 	:focus 			- has focus?
 	#
-	class Textfield < BaseObject
+	class Textfield < FormObject
 		attr_accessor :focus, :password, :allow
 
 		def initialize options

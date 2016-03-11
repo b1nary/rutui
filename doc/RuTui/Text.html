@@ -1,0 +1,1321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RuTui::Text
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RuTui/Text.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RuTui.html" title="RuTui (module)">RuTui</a></span></span>
+     &raquo; 
+    <span class="title">Text</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RuTui::Text
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></li>
+          
+            <li class="next">RuTui::Text</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rutui/objects/text.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Text Object Class Creates an Text element</p>
+
+<p>Attributes (all accessible): 	 :x				MUST 	 :y				MUST</p>
+
+<pre class="code ruby"><code class="ruby">:text			- the text to draw
+:background	- Background color (0-255)
+:foreground 	- Foreground color (0-255)
+  :max_width 	- with max_width defined text breaks to next line automatically</code></pre>
+
+<p>:rainbow 		- true|false|none	Rainbow text</p>
+
+<pre class="code ruby"><code class="ruby">:bold 			- true|false|nil	Bold text
+:italic        - true|false|nil	Italic text (Not supported everywhere)
+:thin	        - true|false|nil	Thin text (Not supported everywhere)
+:underline     - true|false|nil	Underline text (Not supported everywhere)
+:blink	        - true|false|nil	Blink text (Not supported everywhere)</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="rainbow-classvariable" class="">@@rainbow =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bg-instance_method" title="#bg (instance method)">- (Object) <strong>bg</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute bg.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#blink-instance_method" title="#blink (instance method)">- (Object) <strong>blink</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute blink.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bold-instance_method" title="#bold (instance method)">- (Object) <strong>bold</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute bold.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#do_rainbow-instance_method" title="#do_rainbow (instance method)">- (Object) <strong>do_rainbow</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute do_rainbow.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fg-instance_method" title="#fg (instance method)">- (Object) <strong>fg</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute fg.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#italic-instance_method" title="#italic (instance method)">- (Object) <strong>italic</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute italic.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_width-instance_method" title="#max_width (instance method)">- (Object) <strong>max_width</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute max_width.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pixel-instance_method" title="#pixel (instance method)">- (Object) <strong>pixel</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute pixel.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#text-instance_method" title="#text (instance method)">- (Object) <strong>text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute text.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#thin-instance_method" title="#thin (instance method)">- (Object) <strong>thin</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute thin.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#underline-instance_method" title="#underline (instance method)">- (Object) <strong>underline</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute underline.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#height-instance_method" title="RuTui::BaseObject#height (method)">#height</a></span>, <span class='object_link'><a href="BaseObject.html#object-instance_method" title="RuTui::BaseObject#object (method)">#object</a></span>, <span class='object_link'><a href="BaseObject.html#theme-instance_method" title="RuTui::BaseObject#theme (method)">#theme</a></span>, <span class='object_link'><a href="BaseObject.html#width-instance_method" title="RuTui::BaseObject#width (method)">#width</a></span>, <span class='object_link'><a href="BaseObject.html#x-instance_method" title="RuTui::BaseObject#x (method)">#x</a></span>, <span class='object_link'><a href="BaseObject.html#y-instance_method" title="RuTui::BaseObject#y (method)">#y</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create Text can be recalled any time on attribute changes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_text-instance_method" title="#get_text (instance method)">- (Object) <strong>get_text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Text) <strong>initialize</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Text.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_text-instance_method" title="#set_text (instance method)">- (Object) <strong>set_text</strong>(text) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseObject.html" title="RuTui::BaseObject (class)">BaseObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseObject.html#calculate_size-instance_method" title="RuTui::BaseObject#calculate_size (method)">#calculate_size</a></span>, <span class='object_link'><a href="BaseObject.html#each-instance_method" title="RuTui::BaseObject#each (method)">#each</a></span>, <span class='object_link'><a href="BaseObject.html#get_pixel-instance_method" title="RuTui::BaseObject#get_pixel (method)">#get_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#move-instance_method" title="RuTui::BaseObject#move (method)">#move</a></span>, <span class='object_link'><a href="BaseObject.html#recreate-instance_method" title="RuTui::BaseObject#recreate (method)">#recreate</a></span>, <span class='object_link'><a href="BaseObject.html#set_pixel-instance_method" title="RuTui::BaseObject#set_pixel (method)">#set_pixel</a></span>, <span class='object_link'><a href="BaseObject.html#set_position-instance_method" title="RuTui::BaseObject#set_position (method)">#set_position</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RuTui::Text (class)">Text</a></span></tt>) <strong>initialize</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='id identifier rubyid_options'>options</span>
+  <span class='ivar'>@do_rainbow</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:rainbow</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='ivar'>@do_rainbow</span>
+    <span class='cvar'>@@rainbow</span> <span class='op'>=</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:rainbow</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='cvar'>@@rainbow</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@text</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:text</span><span class='rbracket'>]</span>
+  <span class='ivar'>@x</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span>
+  <span class='ivar'>@y</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span>
+  <span class='ivar'>@pixel</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:pixel</span><span class='rbracket'>]</span>
+  <span class='ivar'>@bg</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:background</span><span class='rbracket'>]</span>
+  <span class='ivar'>@fg</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:foreground</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='ivar'>@bg</span> <span class='op'>=</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_bg'>bg</span>
+    <span class='ivar'>@fg</span> <span class='op'>=</span> <span class='ivar'>@pixel</span><span class='period'>.</span><span class='id identifier rubyid_fg'>fg</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@bg</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span> <span class='kw'>if</span> <span class='ivar'>@bg</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@fg</span> <span class='op'>=</span> <span class='const'>Theme</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='symbol'>:textcolor</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@fg</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@bold</span> 		<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:bold</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@thin</span> 		<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:thin</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@italic</span> 	<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:italic</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@underline</span> 	<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:underline</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@blink</span> 		<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:blink</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='kw'>false</span>
+  <span class='ivar'>@max_width</span> 	<span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:max_width</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@x</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='ivar'>@y</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='ivar'>@height</span> <span class='op'>=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="bg=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="bg-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bg</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute bg</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bg'>bg</span>
+  <span class='ivar'>@bg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="blink=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="blink-instance_method">
+  
+    - (<tt>Object</tt>) <strong>blink</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute blink</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_blink'>blink</span>
+  <span class='ivar'>@blink</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="bold=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="bold-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bold</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute bold</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bold'>bold</span>
+  <span class='ivar'>@bold</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="do_rainbow=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="do_rainbow-instance_method">
+  
+    - (<tt>Object</tt>) <strong>do_rainbow</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute do_rainbow</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_do_rainbow'>do_rainbow</span>
+  <span class='ivar'>@do_rainbow</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="fg=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="fg-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fg</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute fg</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fg'>fg</span>
+  <span class='ivar'>@fg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="italic=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="italic-instance_method">
+  
+    - (<tt>Object</tt>) <strong>italic</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute italic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_italic'>italic</span>
+  <span class='ivar'>@italic</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="max_width=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="max_width-instance_method">
+  
+    - (<tt>Object</tt>) <strong>max_width</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute max_width</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_width'>max_width</span>
+  <span class='ivar'>@max_width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pixel=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pixel-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pixel</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute pixel</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pixel'>pixel</span>
+  <span class='ivar'>@pixel</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="text=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>text</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute text</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_text'>text</span>
+  <span class='ivar'>@text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="thin=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="thin-instance_method">
+  
+    - (<tt>Object</tt>) <strong>thin</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute thin</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_thin'>thin</span>
+  <span class='ivar'>@thin</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="underline=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="underline-instance_method">
+  
+    - (<tt>Object</tt>) <strong>underline</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute underline</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_underline'>underline</span>
+  <span class='ivar'>@underline</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create Text can be recalled any time on attribute changes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
+  <span class='kw'>if</span> <span class='ivar'>@do_rainbow</span>
+    <span class='id identifier rubyid_rainbow'>rainbow</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@width</span> <span class='op'>=</span> <span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='ivar'>@obj</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_texts'>texts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@text</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@max_width</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_texts'>texts</span> <span class='op'>=</span> <span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_chars'>chars</span><span class='period'>.</span><span class='id identifier rubyid_each_slice'>each_slice</span><span class='lparen'>(</span><span class='ivar'>@max_width</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:join</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_texts'>texts</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span>
+    <span class='id identifier rubyid_tmp'>tmp</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_bold'>bold</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@bold</span>
+      <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_thin'>thin</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@thin</span>
+      <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_italic'>italic</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@italic</span>
+      <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_underline'>underline</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@underline</span>
+      <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='const'>RuTui</span><span class='op'>::</span><span class='const'>Ansi</span><span class='period'>.</span><span class='id identifier rubyid_blink'>blink</span><span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@blink</span>
+      <span class='kw'>if</span> <span class='ivar'>@do_rainbow</span>
+        <span class='id identifier rubyid_tmp'>tmp</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='cvar'>@@rainbow</span><span class='lbracket'>[</span><span class='id identifier rubyid_rainbow'>rainbow</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='ivar'>@bg</span><span class='comma'>,</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_rainbow'>rainbow</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_rainbow'>rainbow</span> <span class='op'>=</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_rainbow'>rainbow</span> <span class='op'>&gt;=</span> <span class='cvar'>@@rainbow</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_tmp'>tmp</span> <span class='op'>&lt;&lt;</span> <span class='const'>Pixel</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@fg</span><span class='comma'>,</span><span class='ivar'>@bg</span><span class='comma'>,</span><span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@obj</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_tmp'>tmp</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_text</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_text'>get_text</span>
+  <span class='ivar'>@text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_text</strong>(text) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rutui/objects/text.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_text'>set_text</span> <span class='id identifier rubyid_text'>text</span>
+  <span class='ivar'>@text</span> <span class='op'>=</span> <span class='id identifier rubyid_text'>text</span>
+  <span class='id identifier rubyid_create'>create</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Mar 13 12:30:19 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>
