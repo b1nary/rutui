@@ -41,6 +41,8 @@ module RuTui
 		# Goto position
 		def self.position x,y; "\e[#{y};#{x}f"; end
 		# Hide cursor
-		def self.hide_cursor; "\e?25l"; end
+		def self.hide_cursor; "\e[?25l"; end
+		# Show cursor
+		def self.show_cursor; "\e[?25h"; end
 	end
 end

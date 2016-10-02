@@ -15,6 +15,12 @@ module RuTui
         end
       }
 
+      # Special keys are currently not supported on Windows
+      # That needs some investigation
+      if RUBY_PLATFORM =~ /(win32|w32)/
+        @@keys = {}
+      end
+
       # Exit with failure if the terminal was not found
       unless defined? @@keys
         STDERR.puts "Unsupported terminal '#{ENV['TERM']}'."
@@ -23,7 +29,6 @@ module RuTui
 
       # Add the common control key definitions
       @@keys.merge!(@@control_keys)
-      #require "pp" ; pp @@keys
     end
 
     # Get input char without enter
