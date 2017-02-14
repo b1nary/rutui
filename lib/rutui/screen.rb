@@ -114,18 +114,18 @@ module RuTui
 			@map.each do |line|
 				line.each do |pixel|
 					if lastpixel != pixel
-						out += RuTui::Ansi.clear_color if lastpixel != 0
+						out << RuTui::Ansi.clear_color if lastpixel != 0
 						if pixel.nil?
-							out += "#{RuTui::Ansi.bg(@default.bg)}#{RuTui::Ansi.fg(@default.fg)}#{@default.symbol}"
+							out << "#{RuTui::Ansi.bg(@default.bg)}#{RuTui::Ansi.fg(@default.fg)}#{@default.symbol}"
 						else
-							out += "#{RuTui::Ansi.bg(pixel.bg)}#{RuTui::Ansi.fg(pixel.fg)}#{pixel.symbol}"
+							out << "#{RuTui::Ansi.bg(pixel.bg)}#{RuTui::Ansi.fg(pixel.fg)}#{pixel.symbol}"
 						end
 						lastpixel = pixel
 					else
 						if pixel.nil?
-							out += @default.symbol
+							out << @default.symbol
 						else
-							out += pixel.symbol
+							out << pixel.symbol
 						end
 					end
 				end
