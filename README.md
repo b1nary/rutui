@@ -37,6 +37,8 @@ If you are on windows please take a look at [Ansicon](https://github.com/adoxa/a
 
 ## Changelog
 
+* 0.7.1
+  * Merge [pull request](https://github.com/b1nary/rutui/pull/6) by @lmc (improve draw performance by a lot!)
 * 0.7
   * Merge [pull request](https://github.com/b1nary/rutui/pull/1) from @jaydg
 * 0.6
