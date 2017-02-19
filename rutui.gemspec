@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'rutui'
-  s.version     = '0.7.2'
+  s.version     = '0.7.3'
   s.summary     = "RUby Textbased User Interface"
   s.description = "Create Pure Ruby textbased interfaces of all kinds (Unix only)"
   s.license     = "MIT"
