@@ -37,7 +37,7 @@ module RuTui
 			@y = options[:y]
 			@y = 1 if @y.nil?
 
-			@allow = (0..9).to_a + ('a'..'z').to_a + ('A'..'Z').to_a + [" ", ":", "<", ">", "|", "#",
+			@allow = ('0'..'9').to_a + ('a'..'z').to_a + ('A'..'Z').to_a + [" ", ":", "<", ">", "|", "#",
 				"@", "*", ",", "!", "?", ".", "-", "_", "=", "[", "]", "(", ")", "{", "}", ";"]
 			@allow = options[:allow] if !options[:allow].nil?
 
