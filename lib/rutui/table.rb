@@ -108,7 +108,7 @@ module RuTui
 			if @header
 				obj << ascii_table_line if @ascii
 				_obj = []
-				_obj << Pixel.new(@pixel.fg,@bg,"|") if @ascii
+				_obj << Pixel.new(@pixel.fg,@bg,"\u2502") if @ascii
 				_obj << nil
 				@cols.each_with_index do |col, index|
 					fg = @pixel.fg
@@ -121,7 +121,7 @@ module RuTui
 					(@meta[:max_widths][index]-chars.size+2).times do |i|
 						_obj << nil
 					end
-					_obj << Pixel.new(@pixel.fg,@bg,"|") if @ascii
+					_obj << Pixel.new(@pixel.fg,@bg,"\u2502") if @ascii
 				end
 				obj << _obj
 			end
@@ -130,7 +130,7 @@ module RuTui
 				bg = @bg
 				bg = @hover if lindex == @highlight and @highlight_direction == :horizontal
 				_obj = []
-				_obj << Pixel.new(@pixel.fg,bg,"|") if @ascii
+				_obj << Pixel.new(@pixel.fg,bg,"\u2502") if @ascii
 				line.each_with_index do |col, index|
 					fg = @fg
 					fg = @cols[index][:color] if !@cols[index].nil? and !@cols[index][:color].nil?
@@ -158,7 +158,7 @@ module RuTui
 					end
 
 					bg = @bg if @highlight_direction == :vertical
-					_obj << Pixel.new(@pixel.fg,bg,"|") if @ascii
+					_obj << Pixel.new(@pixel.fg,bg,"\u2502") if @ascii
 				end
 				obj << _obj
 			end
@@ -182,12 +182,12 @@ module RuTui
 		private
 		def ascii_table_line
 			_obj = []
-			_obj << Pixel.new(@pixel.fg,@bg,"+")
+			_obj << Pixel.new(@pixel.fg,@bg,"\u253c")
 			@meta[:max_widths].each do |index,mw|
 				(mw+2).times do |i|
-					_obj << Pixel.new(@pixel.fg,@bg,"-")
+					_obj << Pixel.new(@pixel.fg,@bg,"\u2500")
 				end
-				_obj << Pixel.new(@pixel.fg,@bg,"+")
+				_obj << Pixel.new(@pixel.fg,@bg,"\u253c")
 			end
 			_obj
 		end
