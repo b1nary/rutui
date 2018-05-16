@@ -109,7 +109,6 @@ module RuTui
 				obj << ascii_table_line if @ascii
 				_obj = []
 				_obj << Pixel.new(@pixel.fg,@bg,"|") if @ascii
-				_obj << nil
 				@cols.each_with_index do |col, index|
 					fg = @pixel.fg
 					fg = @cols[index][:title_color] if !@cols[index].nil? and !@cols[index][:title_color].nil?
